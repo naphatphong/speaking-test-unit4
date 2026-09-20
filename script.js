@@ -1458,7 +1458,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- 14.3 scroll reveal ---------- */
   const REVEAL_SEL = [
     '.card', '.step', '.mn', '.pb-group', '.topic-card', '.tip', '.tl',
-    '.q-card', '.sec-title', '.stat', '.chip', '.model-box', '.timeline'
+    '.q-card', '.sec-title', '.sec-h', '.stat', '.model-box',
+    '.disc', '.eyebrow', '.acc-item', '.cta-big h2', '.cta-big .btn', '.foot-col', '.foot-brand'
   ].join(',');
 
   const io = new IntersectionObserver(entries => {
@@ -1479,7 +1480,7 @@ document.addEventListener('DOMContentLoaded', () => {
       io.observe(el);
     });
     // stagger siblings inside the same container
-    document.querySelectorAll('.grid-2,.grid-3,.mnemo,.steps,.phrase-bank,.topic-list,.timeline,.stat-row')
+    document.querySelectorAll('.grid-2,.grid-3,.mnemo,.steps,.phrase-bank,.topic-list,.timeline,.stat-row,.disc-list,.acc,.foot-grid')
       .forEach(wrap => {
         [...wrap.children].forEach((child, i) => {
           if (child.classList.contains('rv') && !child.dataset.rvDelay) {
@@ -1556,12 +1557,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (y > lastY && y > 220) document.body.classList.add('nav-up');
     else document.body.classList.remove('nav-up');
+    litManifesto();
     lastY = y;
     ticking = false;
   }
   addEventListener('scroll', () => {
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
+
+  /* ---------- 14.7b manifesto word-by-word reveal ---------- */
+  function splitWords(text) {
+    const bySpace = text.trim().split(/(\s+)/).filter(Boolean);
+    const wordCount = bySpace.filter(t => !/^\s+$/.test(t)).length;
+    // Thai has almost no spaces — fall back to proper word segmentation
+    if (wordCount < 12 && text.length > 60 && typeof Intl !== 'undefined' && Intl.Segmenter) {
+      try {
+        const seg = new Intl.Segmenter(document.documentElement.lang || 'th', { granularity: 'word' });
+        return [...seg.segment(text.trim())].map(s => s.segment);
+      } catch (e) { /* fall through */ }
+    }
+    return bySpace;
+  }
+
+  function wrapManifesto() {
+    document.querySelectorAll('[data-manifesto]').forEach(el => {
+      if (el.querySelector('.w')) return;          // already wrapped
+      const parts = splitWords(el.textContent);
+      el.textContent = '';
+      parts.forEach(part => {
+        if (/^\s+$/.test(part)) { el.appendChild(document.createTextNode(part)); return; }
+        const s = document.createElement('span');
+        s.className = 'w';
+        s.textContent = part;
+        el.appendChild(s);
+      });
+    });
+  }
+  function litManifesto() {
+    document.querySelectorAll('[data-manifesto]').forEach(el => {
+      const words = [...el.querySelectorAll('.w')];
+      if (!words.length) return;
+      const r = el.getBoundingClientRect();
+      // map scroll position across the element to how many words are lit
+      const start = innerHeight * 0.85, end = innerHeight * 0.25;
+      const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
+      const lit = Math.round(p * words.length);
+      words.forEach((w, i) => w.classList.toggle('on', i < lit));
+    });
+  }
 
   /* ---------- 14.8 hero entrance ---------- */
   function litHero() {
@@ -1582,6 +1625,8 @@ document.addEventListener('DOMContentLoaded', () => {
         litHero();
         scan();
         scanMagnets();
+        wrapManifesto();
+        litManifesto();
         setTimeout(revealInView, 450);
       });
     };
@@ -1591,7 +1636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let pending = null;
   new MutationObserver(() => {
     clearTimeout(pending);
-    pending = setTimeout(() => { scan(); scanMagnets(); }, 90);
+    pending = setTimeout(() => { scan(); scanMagnets(); wrapManifesto(); litManifesto(); }, 90);
   }).observe(document.getElementById('main'), { childList: true, subtree: true });
 
   /* ---------- 14.11 failsafe: nothing may stay invisible ---------- */
@@ -1605,6 +1650,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 14.12 boot ---------- */
   function boot() {
+    wrapManifesto();
     scan(); scanMagnets(); moveIndicator(); litHero(); onScroll();
     setTimeout(revealInView, 500);
   }
