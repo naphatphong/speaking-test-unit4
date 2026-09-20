@@ -1379,14 +1379,28 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProgress();
     toast(lang === 'th' ? '💾 บันทึกผลประเมิน ' + total + '/35 แล้ว' : '💾 Saved ' + total + '/35');
   });
-  $('#clearBtn').addEventListener('click', () => { $('#confirmModal').hidden = false; $('#cfNo').focus(); });
-  $('#cfNo').addEventListener('click', () => { $('#confirmModal').hidden = true; });
+  /* ---------- MODAL HELPERS (bug fix) ---------- */
+  function openConfirm() {
+    const m = $('#confirmModal');
+    m.hidden = false;
+    m.style.display = 'grid';
+    $('#cfNo').focus();
+  }
+  function closeConfirm() {
+    const m = $('#confirmModal');
+    m.hidden = true;
+    m.style.display = 'none';
+  }
+
+  $('#clearBtn').addEventListener('click', openConfirm);
+  $('#cfNo').addEventListener('click', closeConfirm);
   $('#cfYes').addEventListener('click', () => {
-    store.clearAll(); $('#confirmModal').hidden = true;
+    store.clearAll();
+    closeConfirm();
     renderHomeStats(); renderProgress(); updateQuizHead(); loadNotes();
     toast(lang === 'th' ? '🗑️ ล้างข้อมูลทั้งหมดแล้ว' : '🗑️ All data cleared');
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#confirmModal').hidden) $('#confirmModal').hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeConfirm(); });
 
   /* restore last page */
   go(store.get('page', 'home'));
