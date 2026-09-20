@@ -6,7 +6,7 @@
 
 /* ---------- 1. HELPERS ---------- */
 const $  = (s, r = document) => r.querySelector(s);
-const $ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const K  = 'su4_';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -610,11 +610,11 @@ const L = () => lang;
 
 function applyLang(root) {
   const scope = root || document;
-  $('[data-en]', scope).forEach(el => {
+  $$('[data-en]', scope).forEach(el => {
     const v = el.getAttribute('data-' + lang);
     if (v !== null) el.textContent = v;
   });
-  $('[data-en-ph]', scope).forEach(el => {
+  $$('[data-en-ph]', scope).forEach(el => {
     const v = el.getAttribute('data-' + lang + '-ph');
     if (v !== null) el.placeholder = v;
   });
@@ -636,9 +636,9 @@ function setFont(n) {
 
 /* ---------- 6. ROUTER ---------- */
 function go(page) {
-  $('.page').forEach(p => p.classList.toggle('is-active', p.id === 'page-' + page));
-  $('.nav-btn').forEach(b => b.classList.toggle('is-active', b.dataset.page === page));
-  $('.mnav').forEach(b => b.classList.toggle('is-active', b.dataset.page === page));
+  $$('.page').forEach(p => p.classList.toggle('is-active', p.id === 'page-' + page));
+  $$('.nav-btn').forEach(b => b.classList.toggle('is-active', b.dataset.page === page));
+  $$('.mnav').forEach(b => b.classList.toggle('is-active', b.dataset.page === page));
   window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
   store.set('page', page);
   if (page === 'progress') renderProgress();
@@ -866,7 +866,7 @@ function renderNotes() {
       <label for="note${s.k}">${s.k} · ${s.en} (${s.th})</label>
       <textarea id="note${s.k}" data-step="${s.k}" placeholder="${s.ex[0]}" aria-label="โน้ตขั้นตอน ${s.en}"></textarea>
     </div>`).join('');
-  $('#notesWrap textarea').forEach(ta => ta.addEventListener('input', updateNoteWC));
+  $$('#notesWrap textarea').forEach(ta => ta.addEventListener('input', updateNoteWC));
 }
 function noteKey() { return 'notes_' + pracTopic.id; }
 function loadNotes() {
@@ -1010,13 +1010,13 @@ function qCardHTML(q, i) {
     ${body}<div class="exp" id="exp${i}" hidden></div></div>`;
 }
 function bindQuiz() {
-  $('#quizBody .choice').forEach(b => b.addEventListener('click', onChoice));
-  $('#quizBody .q-check').forEach(b => b.addEventListener('click', onCheck));
-  $('#quizBody .wd').forEach(b => b.addEventListener('click', onWord));
-  $('#quizBody .q-undo').forEach(b => b.addEventListener('click', onUndo));
-  $('#quizBody .fill-in').forEach(inp => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); onCheck({ currentTarget: { dataset: { i: inp.dataset.i } } }); } }));
+  $$('#quizBody .choice').forEach(b => b.addEventListener('click', onChoice));
+  $$('#quizBody .q-check').forEach(b => b.addEventListener('click', onCheck));
+  $$('#quizBody .wd').forEach(b => b.addEventListener('click', onWord));
+  $$('#quizBody .q-undo').forEach(b => b.addEventListener('click', onUndo));
+  $$('#quizBody .fill-in').forEach(inp => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); onCheck({ currentTarget: { dataset: { i: inp.dataset.i } } }); } }));
 }
-function lock(i) { $('#q' + i + ' button').forEach(b => b.disabled = true); const f = $('#q' + i + ' .fill-in'); if (f) f.disabled = true; }
+function lock(i) { $$('#q' + i + ' button').forEach(b => b.disabled = true); const f = $('#q' + i + ' .fill-in'); if (f) f.disabled = true; }
 function showExp(i, ok, extra) {
   const el = $('#exp' + i);
   el.hidden = false;
@@ -1107,11 +1107,11 @@ function renderRubric() {
       <input type="range" id="rub${i}" min="1" max="5" step="1" value="1" aria-label="${r[0]}" />
       <output id="rubo${i}">1</output>
     </div>`).join('');
-  $('#rubric input').forEach((inp, i) => inp.addEventListener('input', () => { $('#rubo' + i).textContent = inp.value; updateRubTotal(); }));
+  $$('#rubric input').forEach((inp, i) => inp.addEventListener('input', () => { $('#rubo' + i).textContent = inp.value; updateRubTotal(); }));
   updateRubTotal();
 }
 function updateRubTotal() {
-  const total = $('#rubric input').reduce((s, i) => s + (+i.value), 0);
+  const total = $$('#rubric input').reduce((s, i) => s + (+i.value), 0);
   $('#rubTotal').textContent = total;
   const adv = total >= 31 ? 'พร้อมสอบมาก! รักษาจังหวะการพูดไว้ และลองใช้วลีระดับ Challenge เพิ่ม'
     : total >= 25 ? 'ดีแล้ว! เน้นฝึกให้พูดลื่นขึ้นและจบให้ตรงเวลา 1 นาที'
@@ -1189,8 +1189,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* nav */
-  $('.nav-btn, .mnav').forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
-  $('[data-go]').forEach(b => b.addEventListener('click', () => go(b.dataset.go)));
+  $$('.nav-btn, .mnav').forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
+  $$('[data-go]').forEach(b => b.addEventListener('click', () => go(b.dataset.go)));
 
   /* render all */
   renderFormula(); renderTechnique(); renderTopics(); renderNotes(); renderRubric();
@@ -1219,33 +1219,33 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#tplBuild').addEventListener('click', () => { buildTemplate(); toast(lang === 'th' ? '📝 สร้างบทพูดแล้ว' : '📝 Pitch built'); });
   $('#tplCopy').addEventListener('click', () => copyText($('#tplOut').textContent || buildTemplate()));
   $('#tplClear').addEventListener('click', () => {
-    $('.template-card .tpl').forEach(i => i.value = '');
+    $$('.template-card .tpl').forEach(i => i.value = '');
     $('#tplOut').textContent = ''; $('#tplWC').textContent = '0 words';
     store.del('tpl'); toast(lang === 'th' ? 'ล้างแล้ว' : 'Cleared');
   });
-  $('.template-card .tpl').forEach(i => i.addEventListener('input', () => { if ($('#tplOut').textContent) buildTemplate(); }));
+  $$('.template-card .tpl').forEach(i => i.addEventListener('input', () => { if ($('#tplOut').textContent) buildTemplate(); }));
 
   /* timeline demo */
   let tlTimer = null, tlSec = 30;
   const tlPaint = () => {
     $('#tlCount').textContent = tlSec;
     const idx = Math.min(5, Math.floor((30 - tlSec) / 5));
-    $('.tl').forEach(el => el.classList.toggle('on', +el.dataset.i === idx));
+    $$('.tl').forEach(el => el.classList.toggle('on', +el.dataset.i === idx));
   };
   $('#tlStart').addEventListener('click', () => {
     if (tlTimer) clearInterval(tlTimer);
     tlSec = 30; tlPaint();
     tlTimer = setInterval(() => {
       tlSec--; tlPaint();
-      if (tlSec <= 0) { clearInterval(tlTimer); tlTimer = null; beep(1000, .3, .18); $('.tl').forEach(el => el.classList.remove('on')); toast(lang === 'th' ? 'หมดเวลาเตรียมตัว — พูดได้เลย!' : 'Time to speak!'); }
+      if (tlSec <= 0) { clearInterval(tlTimer); tlTimer = null; beep(1000, .3, .18); $$('.tl').forEach(el => el.classList.remove('on')); toast(lang === 'th' ? 'หมดเวลาเตรียมตัว — พูดได้เลย!' : 'Time to speak!'); }
     }, 1000);
   });
-  $('#tlStop').addEventListener('click', () => { if (tlTimer) clearInterval(tlTimer); tlTimer = null; tlSec = 30; tlPaint(); $('.tl').forEach(el => el.classList.remove('on')); });
+  $('#tlStop').addEventListener('click', () => { if (tlTimer) clearInterval(tlTimer); tlTimer = null; tlSec = 30; tlPaint(); $$('.tl').forEach(el => el.classList.remove('on')); });
 
   /* examples filters */
   $('#topicSearch').addEventListener('input', e => { exFilter.q = e.target.value; renderTopics(); });
-  $('.fchip').forEach(c => c.addEventListener('click', () => {
-    $('.fchip').forEach(x => x.classList.remove('is-on'));
+  $$('.fchip').forEach(c => c.addEventListener('click', () => {
+    $$('.fchip').forEach(x => x.classList.remove('is-on'));
     c.classList.add('is-on'); exFilter.level = c.dataset.level; renderTopics();
   }));
   $('#exToggleAllTH').addEventListener('click', () => {
@@ -1373,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* progress */
   $('#rubSave').addEventListener('click', () => {
-    const total = $('#rubric input').reduce((s, i) => s + (+i.value), 0);
+    const total = $$('#rubric input').reduce((s, i) => s + (+i.value), 0);
     const scores = store.get('scores', []); scores.unshift(total); store.set('scores', scores.slice(0, 40));
     addHistory('rate', +$('#rubTopic').value, total);
     renderProgress();
