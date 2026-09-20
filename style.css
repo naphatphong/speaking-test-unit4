@@ -363,6 +363,7 @@ html[data-theme="dark"] .history b{color:#93b4ff}
 
 /* ============ MODAL / TOAST ============ */
 .modal{position:fixed;inset:0;background:rgba(8,11,24,.62);backdrop-filter:blur(4px);display:grid;place-items:center;z-index:80;padding:1rem}
+.modal[hidden]{display:none}
 .modal-box{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.3rem;max-width:420px;box-shadow:var(--shadow-lg)}
 .modal-box p{color:var(--muted);font-size:.92rem;margin-bottom:1rem}
 .toast-wrap{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);z-index:90;display:grid;gap:.4rem;width:min(92vw,400px)}
