@@ -39,7 +39,10 @@
       <button id="btnLang" class="tool-btn" aria-label="Switch language ไทย/English"><span id="langLabel">EN</span></button>
       <button id="btnFontDec" class="tool-btn" aria-label="ลดขนาดตัวอักษร">A<small>−</small></button>
       <button id="btnFontInc" class="tool-btn" aria-label="เพิ่มขนาดตัวอักษร">A<small>+</small></button>
-      <button id="btnTheme" class="tool-btn" aria-label="สลับโหมดสว่าง/มืด"><span id="themeIcon">🌙</span></button>
+      <button id="btnTheme" class="tool-btn" aria-label="สลับโหมดสว่าง/มืด"><span id="themeIcon" class="ico-theme">
+        <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+      </span></button>
       <button class="btn btn-accent nav-cta" data-go="exam" data-en="Start exam →" data-th="เริ่มสอบ →">เริ่มสอบ →</button>
     </div>
   </div>
@@ -257,7 +260,7 @@
     <div class="row wrap">
       <label class="lbl" for="pracTopic" data-en="Topic" data-th="หัวข้อ">หัวข้อ</label>
       <select id="pracTopic" class="select" aria-label="เลือกหัวข้อฝึกพูด"></select>
-      <button class="btn btn-line" id="pracRandom" data-en="🎲 Random" data-th="🎲 สุ่มหัวข้อ">🎲 สุ่มหัวข้อ</button>
+      <button class="btn btn-line" id="pracRandom" data-en="Random" data-th="สุ่มหัวข้อ">สุ่มหัวข้อ</button>
     </div>
     <p class="topic-show" id="pracTopicText">—</p>
     <p class="topic-show th" id="pracTopicTH">—</p>
@@ -279,7 +282,7 @@
       <button class="btn btn-ghost" id="pracPause" data-en="Pause" data-th="พัก">พัก</button>
       <button class="btn btn-ghost" id="pracResume" data-en="Resume" data-th="ไปต่อ">ไปต่อ</button>
       <button class="btn btn-ghost" id="pracReset" data-en="Reset" data-th="รีเซ็ต">รีเซ็ต</button>
-      <button class="btn btn-ghost" id="pracSound" aria-pressed="true" data-en="🔔 Sound: On" data-th="🔔 เสียง: เปิด">🔔 เสียง: เปิด</button>
+      <button class="btn btn-ghost" id="pracSound" aria-pressed="true" data-en="Sound: On" data-th="เสียง: เปิด">เสียง: เปิด</button>
     </div>
   </div>
 
@@ -316,7 +319,7 @@
     <div class="row between wrap">
       <span class="pill soft" id="examState" data-en="Ready" data-th="พร้อมสอบ">พร้อมสอบ</span>
       <div class="row">
-        <button class="btn btn-ghost sm" id="examFS" data-en="⛶ Fullscreen" data-th="⛶ เต็มจอ">⛶ เต็มจอ</button>
+        <button class="btn btn-ghost sm" id="examFS" data-en="Fullscreen" data-th="เต็มจอ">เต็มจอ</button>
       </div>
     </div>
 
@@ -337,7 +340,7 @@
     </div>
 
     <div class="row center wrap">
-      <button class="btn btn-primary" id="examStart" data-en="🎬 Start exam" data-th="🎬 เริ่มสอบ">🎬 เริ่มสอบ</button>
+      <button class="btn btn-primary" id="examStart" data-en="Start exam" data-th="เริ่มสอบ">เริ่มสอบ</button>
       <button class="btn btn-ghost" id="examPause" data-en="Pause" data-th="พัก">พัก</button>
       <button class="btn btn-ghost" id="examResume" data-en="Resume" data-th="ไปต่อ">ไปต่อ</button>
       <button class="btn btn-ghost" id="examReset" data-en="Reset" data-th="รีเซ็ต">รีเซ็ต</button>
@@ -345,13 +348,13 @@
 
     <div class="rec-box">
       <div class="row wrap center">
-        <button class="btn btn-danger" id="recBtn" data-en="● Record voice" data-th="● อัดเสียง">● อัดเสียง</button>
+        <button class="btn btn-danger" id="recBtn" data-en="Record voice" data-th="อัดเสียง">อัดเสียง</button>
         <span class="muted small" data-en="Audio stays on your device only." data-th="ไฟล์เสียงอยู่บนเครื่องคุณเท่านั้น ไม่อัปโหลดขึ้นเซิร์ฟเวอร์">ไฟล์เสียงอยู่บนเครื่องคุณเท่านั้น ไม่อัปโหลดขึ้นเซิร์ฟเวอร์</span>
       </div>
       <p class="rec-msg" id="recMsg" hidden></p>
       <div id="recPlayer" hidden>
         <audio id="recAudio" controls></audio>
-        <a id="recDownload" class="btn btn-ghost sm" download="my-pitch.webm" data-en="⤓ Download audio" data-th="⤓ ดาวน์โหลดไฟล์เสียง">⤓ ดาวน์โหลดไฟล์เสียง</a>
+        <a id="recDownload" class="btn btn-ghost sm" download="my-pitch.webm" data-en="Download audio" data-th="ดาวน์โหลดไฟล์เสียง">ดาวน์โหลดไฟล์เสียง</a>
       </div>
     </div>
 
@@ -445,14 +448,14 @@
 
 <!-- ================= BOTTOM NAV ================= -->
 <nav class="nav-mobile" aria-label="Mobile navigation">
-  <button class="mnav" data-page="home"><span aria-hidden="true">🏠</span><i data-en="Home" data-th="หน้าแรก">หน้าแรก</i></button>
-  <button class="mnav" data-page="formula"><span aria-hidden="true">🧩</span><i data-en="Formula" data-th="สูตร">สูตร</i></button>
-  <button class="mnav" data-page="technique"><span aria-hidden="true">⏱️</span><i data-en="Tips" data-th="เทคนิค">เทคนิค</i></button>
-  <button class="mnav" data-page="examples"><span aria-hidden="true">📚</span><i data-en="Topics" data-th="ตัวอย่าง">ตัวอย่าง</i></button>
-  <button class="mnav" data-page="practice"><span aria-hidden="true">🎤</span><i data-en="Practice" data-th="ฝึกพูด">ฝึกพูด</i></button>
-  <button class="mnav" data-page="exam"><span aria-hidden="true">🎬</span><i data-en="Exam" data-th="สอบ">สอบ</i></button>
-  <button class="mnav" data-page="quiz"><span aria-hidden="true">✅</span><i data-en="Quiz" data-th="ควิซ">ควิซ</i></button>
-  <button class="mnav" data-page="progress"><span aria-hidden="true">📈</span><i data-en="Progress" data-th="ผล">ผล</i></button>
+  <button class="mnav" data-page="home"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg></span><i data-en="Home" data-th="หน้าแรก">หน้าแรก</i></button>
+  <button class="mnav" data-page="formula"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span><i data-en="Formula" data-th="สูตร">สูตร</i></button>
+  <button class="mnav" data-page="technique"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span><i data-en="Tips" data-th="เทคนิค">เทคนิค</i></button>
+  <button class="mnav" data-page="examples"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4.5h6a2.5 2.5 0 0 1 2 2.2 2.5 2.5 0 0 1 2-2.2h6v13h-6a2.5 2.5 0 0 0-2 2 2.5 2.5 0 0 0-2-2H4Z"/><path d="M12 6.7V19.5"/></svg></span><i data-en="Topics" data-th="ตัวอย่าง">ตัวอย่าง</i></button>
+  <button class="mnav" data-page="practice"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11.5a7 7 0 0 0 14 0M12 18.5V21.5"/></svg></span><i data-en="Practice" data-th="ฝึกพูด">ฝึกพูด</i></button>
+  <button class="mnav" data-page="exam"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M10 9.2l5 2.8-5 2.8Z"/></svg></span><i data-en="Exam" data-th="สอบ">สอบ</i></button>
+  <button class="mnav" data-page="quiz"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 6.5 10 17l-5.5-5"/></svg></span><i data-en="Quiz" data-th="ควิซ">ควิซ</i></button>
+  <button class="mnav" data-page="progress"><span class="mnav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20.5h18"/><path d="M6.5 20.5V12M11.5 20.5V7M16.5 20.5V15"/></svg></span><i data-en="Progress" data-th="ผล">ผล</i></button>
 </nav>
 
 <!-- ================= CONFIRM DIALOG ================= -->
