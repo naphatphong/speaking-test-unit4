@@ -7,7 +7,7 @@
 <title>Speaking Test Unit 4: Pitching a Documentary Idea</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -19,8 +19,8 @@
     <div class="brand" tabindex="0">
       <span class="brand-mark" aria-hidden="true">P</span>
       <span class="brand-text">
-        <strong>Speaking Test <span class="u4">Unit&nbsp;4</span></strong>
-        <small data-en="Pitching a Documentary Idea" data-th="พิตช์ไอเดียสารคดี">พิตช์ไอเดียสารคดี</small>
+        <strong>PITCH<span class="u4">04</span></strong>
+        <small data-en="Speaking Test · Unit 4" data-th="สอบพูด · บทที่ 4">สอบพูด · บทที่ 4</small>
       </span>
     </div>
 
@@ -40,6 +40,7 @@
       <button id="btnFontDec" class="tool-btn" aria-label="ลดขนาดตัวอักษร">A<small>−</small></button>
       <button id="btnFontInc" class="tool-btn" aria-label="เพิ่มขนาดตัวอักษร">A<small>+</small></button>
       <button id="btnTheme" class="tool-btn" aria-label="สลับโหมดสว่าง/มืด"><span id="themeIcon">🌙</span></button>
+      <button class="btn btn-accent nav-cta" data-go="exam" data-en="Start exam →" data-th="เริ่มสอบ →">เริ่มสอบ →</button>
     </div>
   </div>
 </header>
@@ -48,17 +49,22 @@
 
 <!-- ================= 1. HOME ================= -->
 <section class="page is-active" id="page-home">
+
+  <!-- ---- HERO ---- -->
   <div class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-body">
-      <span class="pill" data-en="Mediation Skill · Unit 4" data-th="ทักษะการสื่อสาร · บทที่ 4">ทักษะการสื่อสาร · บทที่ 4</span>
-      <h1 data-en="Pitching a Documentary Idea" data-th="พิตช์ไอเดียสารคดี">พิตช์ไอเดียสารคดี</h1>
-      <p class="hero-sub" data-en="Learn the 5-step O-P-C-D-I formula, practise with a real timer, and walk into Speaking Quiz #4 with confidence." data-th="เรียนสูตร 5 ขั้นตอน O-P-C-D-I ฝึกกับไทม์เมอร์จริง และเข้าสู่การสอบแบบทดสอบภาคพูดบทที่ 4 อย่างมั่นใจ">เรียนสูตร 5 ขั้นตอน O-P-C-D-I ฝึกกับไทม์เมอร์จริง และเข้าสู่การสอบแบบทดสอบภาคพูดบทที่ 4 อย่างมั่นใจ</p>
+      <div class="hero-meta">
+        <span data-en="Mediation skill" data-th="ทักษะการสื่อสาร">ทักษะการสื่อสาร</span>
+        <span data-en="30s prepare · 60s speak" data-th="เตรียม 30 วิ · พูด 60 วิ">เตรียม 30 วิ · พูด 60 วิ</span>
+      </div>
+      <h1 data-en="We pitch documentary ideas." data-th="พิตช์ไอเดียสารคดีให้เป็น">พิตช์ไอเดียสารคดีให้เป็น</h1>
+      <p class="hero-sub" data-en="A complete training ground for Speaking Test Unit 4 — the O-P-C-D-I formula, a real exam timer, and ten model answers." data-th="สนามฝึกครบวงจรสำหรับสอบพูดบทที่ 4 — สูตร O-P-C-D-I ไทม์เมอร์จำลองสอบจริง และบทพูดตัวอย่าง 10 ชุด">สนามฝึกครบวงจรสำหรับสอบพูดบทที่ 4 — สูตร O-P-C-D-I ไทม์เมอร์จำลองสอบจริง และบทพูดตัวอย่าง 10 ชุด</p>
 
       <div class="hero-actions">
-        <button class="btn btn-primary" data-go="formula" data-en="Start learning" data-th="เริ่มเรียน">เริ่มเรียน</button>
-        <button class="btn btn-ghost" data-go="practice" data-en="Practise speaking" data-th="ฝึกพูด">ฝึกพูด</button>
-        <button class="btn btn-accent" id="homeRandom" data-en="Random topic" data-th="สุ่มข้อสอบ">สุ่มข้อสอบ</button>
+        <button class="btn btn-primary" data-go="formula" data-en="Learn the formula" data-th="เรียนสูตรพูด">เรียนสูตรพูด</button>
+        <button class="btn btn-ghost" data-go="practice" data-en="Practise speaking" data-th="เข้าห้องฝึกพูด">เข้าห้องฝึกพูด</button>
+        <button class="btn btn-line" id="homeRandom" data-en="Random topic" data-th="สุ่มหัวข้อ">สุ่มหัวข้อ</button>
       </div>
       <div class="hero-random" id="homeRandomBox" hidden>
         <small data-en="Your topic" data-th="หัวข้อของคุณ">หัวข้อของคุณ</small>
@@ -67,33 +73,54 @@
     </div>
   </div>
 
+  <!-- ---- MARQUEE ---- -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Opening</span><span>Purpose</span><span>Content</span><span>Detail</span><span>Invitation</span><span>Documentary</span><span>Pitch</span><span>Audience</span>
-      <span>Opening</span><span>Purpose</span><span>Content</span><span>Detail</span><span>Invitation</span><span>Documentary</span><span>Pitch</span><span>Audience</span>
+      <span>Opening</span><span>Purpose</span><span>Core news</span><span>Documentary</span><span>Impact</span><span>Pitch</span><span>Audience</span><span>Headline</span>
+      <span>Opening</span><span>Purpose</span><span>Core news</span><span>Documentary</span><span>Impact</span><span>Pitch</span><span>Audience</span><span>Headline</span>
     </div>
   </div>
 
-  <div class="grid-3">
-    <article class="card rule-card">
-      <div class="rule-num">30s</div>
-      <h3 data-en="Preparation" data-th="เวลาเตรียมตัว">เวลาเตรียมตัว</h3>
-      <p data-en="One headline is picked at random. You get 30 seconds to think and make quick notes." data-th="ครูสุ่มพาดหัวข่าว 1 ข้อ คุณมีเวลา 30 วินาทีในการคิดและจดโน้ตสั้น ๆ">ครูสุ่มพาดหัวข่าว 1 ข้อ คุณมีเวลา 30 วินาทีในการคิดและจดโน้ตสั้น ๆ</p>
-    </article>
-    <article class="card rule-card">
-      <div class="rule-num">60s</div>
-      <h3 data-en="Speaking" data-th="เวลาพูด">เวลาพูด</h3>
-      <p data-en="Then you speak for 1 minute — about 110–140 words — using all 5 steps." data-th="จากนั้นพูด 1 นาที ประมาณ 110–140 คำ โดยใช้ 5 ขั้นตอนครบ">จากนั้นพูด 1 นาที ประมาณ 110–140 คำ โดยใช้ 5 ขั้นตอนครบ</p>
-    </article>
-    <article class="card rule-card">
-      <div class="rule-num">5</div>
-      <h3 data-en="Steps: O-P-C-D-I" data-th="5 ขั้นตอน: O-P-C-D-I">5 ขั้นตอน: O-P-C-D-I</h3>
-      <p data-en="Opening · Purpose · Core News · Documentary Idea · Impact." data-th="เปิดเรื่อง · จุดประสงค์ · สรุปข่าว · ไอเดียสารคดี · ผลกระทบ">เปิดเรื่อง · จุดประสงค์ · สรุปข่าว · ไอเดียสารคดี · ผลกระทบ</p>
-    </article>
-  </div>
+  <!-- ---- MANIFESTO ---- -->
+  <section class="sec">
+    <p class="eyebrow" data-en="Manifesto" data-th="แนวคิด">แนวคิด</p>
+    <p class="manifesto" data-manifesto data-en="A one-minute pitch is not a speech you memorise. It is five decisions made in order — open, state the purpose, deliver the news, shape the idea, name the impact. Learn the order and you will never run out of words again." data-th="การพูดหนึ่งนาทีไม่ใช่บทที่ต้องท่องจำ แต่คือการตัดสินใจห้าอย่างเรียงตามลำดับ — เปิดเรื่อง บอกจุดประสงค์ สรุปข่าว ปั้นไอเดีย และชี้ผลกระทบ จำลำดับให้ได้ แล้วคุณจะไม่มีวันพูดไม่ออกอีกเลย">การพูดหนึ่งนาทีไม่ใช่บทที่ต้องท่องจำ แต่คือการตัดสินใจห้าอย่างเรียงตามลำดับ — เปิดเรื่อง บอกจุดประสงค์ สรุปข่าว ปั้นไอเดีย และชี้ผลกระทบ จำลำดับให้ได้ แล้วคุณจะไม่มีวันพูดไม่ออกอีกเลย</p>
+  </section>
 
-  <div class="card stat-card">
-    <h3 data-en="Your progress" data-th="ความคืบหน้าของคุณ">ความคืบหน้าของคุณ</h3>
+  <!-- ---- CORE RULES (numbered, AURA discipline style) ---- -->
+  <section class="sec">
+    <p class="eyebrow" data-en="How the test works" data-th="กติกาการสอบ">กติกาการสอบ</p>
+    <div class="disc-list">
+      <article class="disc card rule-card">
+        <span class="disc-no">01</span>
+        <div class="disc-body">
+          <div class="rule-num">30s</div>
+          <h3 data-en="Preparation" data-th="เวลาเตรียมตัว">เวลาเตรียมตัว</h3>
+          <p data-en="One headline is picked at random. You get 30 seconds to think and make quick notes." data-th="ครูสุ่มพาดหัวข่าว 1 ข้อ คุณมีเวลา 30 วินาทีในการคิดและจดโน้ตสั้น ๆ">ครูสุ่มพาดหัวข่าว 1 ข้อ คุณมีเวลา 30 วินาทีในการคิดและจดโน้ตสั้น ๆ</p>
+        </div>
+      </article>
+      <article class="disc card rule-card">
+        <span class="disc-no">02</span>
+        <div class="disc-body">
+          <div class="rule-num">60s</div>
+          <h3 data-en="Speaking" data-th="เวลาพูด">เวลาพูด</h3>
+          <p data-en="Then you speak for 1 minute — about 110–140 words — using all 5 steps." data-th="จากนั้นพูด 1 นาที ประมาณ 110–140 คำ โดยใช้ 5 ขั้นตอนครบ">จากนั้นพูด 1 นาที ประมาณ 110–140 คำ โดยใช้ 5 ขั้นตอนครบ</p>
+        </div>
+      </article>
+      <article class="disc card rule-card">
+        <span class="disc-no">03</span>
+        <div class="disc-body">
+          <div class="rule-num">5</div>
+          <h3 data-en="Steps: O-P-C-D-I" data-th="5 ขั้นตอน: O-P-C-D-I">5 ขั้นตอน: O-P-C-D-I</h3>
+          <p data-en="Opening · Purpose · Core News · Documentary Idea · Impact." data-th="เปิดเรื่อง · จุดประสงค์ · สรุปข่าว · ไอเดียสารคดี · ผลกระทบ">เปิดเรื่อง · จุดประสงค์ · สรุปข่าว · ไอเดียสารคดี · ผลกระทบ</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ---- STATS ---- -->
+  <section class="sec stat-card">
+    <p class="eyebrow" data-en="Your progress" data-th="ความคืบหน้าของคุณ">ความคืบหน้าของคุณ</p>
     <div class="stat-row">
       <div class="stat"><span class="stat-num" id="statPractice">0</span><span class="stat-lab" data-en="Practice sessions" data-th="จำนวนครั้งที่ฝึก">จำนวนครั้งที่ฝึก</span></div>
       <div class="stat"><span class="stat-num" id="statLastScore">–</span><span class="stat-lab" data-en="Last self-score /35" data-th="คะแนนประเมินล่าสุด /35">คะแนนประเมินล่าสุด /35</span></div>
@@ -101,21 +128,53 @@
       <div class="stat"><span class="stat-num" id="statTopics">0/10</span><span class="stat-lab" data-en="Topics practised" data-th="หัวข้อที่ฝึกแล้ว">หัวข้อที่ฝึกแล้ว</span></div>
     </div>
     <div class="bar"><div class="bar-fill" id="homeBar" style="width:0%"></div></div>
-  </div>
+  </section>
+
+  <!-- ---- FAQ ACCORDION ---- -->
+  <section class="sec">
+    <p class="eyebrow" data-en="FAQ" data-th="คำถามที่พบบ่อย">คำถามที่พบบ่อย</p>
+    <h2 class="sec-h" data-en="Frequently asked" data-th="คำถามที่พบบ่อย">คำถามที่พบบ่อย</h2>
+    <div class="acc">
+      <details class="acc-item">
+        <summary data-en="What if I go blank during the 60 seconds?" data-th="ถ้าพูดไปแล้วนึกไม่ออกกลางคันทำยังไง">ถ้าพูดไปแล้วนึกไม่ออกกลางคันทำยังไง</summary>
+        <div class="acc-body"><p data-en="Jump to the next letter of O-P-C-D-I. The formula is your safety net — say the connector out loud and the sentence will follow." data-th="ให้ข้ามไปตัวอักษรถัดไปของ O-P-C-D-I ทันที สูตรนี้คือตาข่ายกันตก พูดคำเชื่อมออกมาก่อน แล้วประโยคจะตามมาเอง">ให้ข้ามไปตัวอักษรถัดไปของ O-P-C-D-I ทันที สูตรนี้คือตาข่ายกันตก พูดคำเชื่อมออกมาก่อน แล้วประโยคจะตามมาเอง</p></div>
+      </details>
+      <details class="acc-item">
+        <summary data-en="How many words should I aim for?" data-th="ควรพูดกี่คำถึงจะพอดี">ควรพูดกี่คำถึงจะพอดี</summary>
+        <div class="acc-body"><p data-en="Around 110–140 words in one minute. The notes panel in the Practice room counts this for you as you type." data-th="ประมาณ 110–140 คำต่อหนึ่งนาที ช่องจดโน้ตในห้องฝึกพูดจะนับคำให้อัตโนมัติขณะพิมพ์">ประมาณ 110–140 คำต่อหนึ่งนาที ช่องจดโน้ตในห้องฝึกพูดจะนับคำให้อัตโนมัติขณะพิมพ์</p></div>
+      </details>
+      <details class="acc-item">
+        <summary data-en="Is my recording uploaded anywhere?" data-th="ไฟล์เสียงที่อัดถูกอัปโหลดขึ้นเซิร์ฟเวอร์ไหม">ไฟล์เสียงที่อัดถูกอัปโหลดขึ้นเซิร์ฟเวอร์ไหม</summary>
+        <div class="acc-body"><p data-en="No. Recordings and notes stay in your own browser only — nothing is sent to a server." data-th="ไม่ ไฟล์เสียงและโน้ตทั้งหมดอยู่ในเบราว์เซอร์ของคุณเท่านั้น ไม่มีการส่งขึ้นเซิร์ฟเวอร์">ไม่ ไฟล์เสียงและโน้ตทั้งหมดอยู่ในเบราว์เซอร์ของคุณเท่านั้น ไม่มีการส่งขึ้นเซิร์ฟเวอร์</p></div>
+      </details>
+      <details class="acc-item">
+        <summary data-en="Where should I start?" data-th="ควรเริ่มจากตรงไหนดี">ควรเริ่มจากตรงไหนดี</summary>
+        <div class="acc-body"><p data-en="Formula first, then read two model answers in Examples, then run one full Exam simulation. That order works best." data-th="เริ่มที่หน้าสูตรพูด จากนั้นอ่านบทพูดตัวอย่างสัก 2 ชุด แล้วลองจำลองสอบเต็มรูปแบบ 1 รอบ ลำดับนี้ได้ผลดีที่สุด">เริ่มที่หน้าสูตรพูด จากนั้นอ่านบทพูดตัวอย่างสัก 2 ชุด แล้วลองจำลองสอบเต็มรูปแบบ 1 รอบ ลำดับนี้ได้ผลดีที่สุด</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ---- BIG CTA ---- -->
+  <section class="cta-big">
+    <h2 data-en="Ready to be tested?" data-th="พร้อมลงสนามจริงหรือยัง">พร้อมลงสนามจริงหรือยัง</h2>
+    <button class="btn btn-accent lg" data-go="exam" data-en="Run the exam simulator →" data-th="เข้าโหมดจำลองสอบ →">เข้าโหมดจำลองสอบ →</button>
+  </section>
 </section>
 
 <!-- ================= 2. FORMULA ================= -->
 <section class="page" id="page-formula">
-  <h2 class="page-title" data-en="The 5-Step Pitch Formula" data-th="สูตรการพิตช์สารคดี 5 ขั้นตอน">สูตรการพิตช์สารคดี 5 ขั้นตอน</h2>
+  <p class="eyebrow" data-en="01 / Formula" data-th="01 / สูตรพูด">01 / สูตรพูด</p>
+  <h2 class="page-title" data-en="The 5-step pitch formula" data-th="สูตรการพิตช์สารคดี 5 ขั้นตอน">สูตรการพิตช์สารคดี 5 ขั้นตอน</h2>
   <p class="page-sub" data-en="Remember five letters and you will never get lost: O-P-C-D-I." data-th="จำแค่ 5 ตัวอักษรก็ไม่มีทางหลง: O-P-C-D-I">จำแค่ 5 ตัวอักษรก็ไม่มีทางหลง: O-P-C-D-I</p>
 
   <div class="mnemo" id="mnemo"></div>
-
   <div class="steps" id="stepsWrap"></div>
 
+  <p class="eyebrow" data-en="Phrase bank" data-th="คลังประโยค">คลังประโยค</p>
   <h3 class="sec-title" data-en="Phrase Bank" data-th="คลังประโยค (Phrase Bank)">คลังประโยค (Phrase Bank)</h3>
   <div class="phrase-bank" id="phraseBank"></div>
 
+  <p class="eyebrow" data-en="Builder" data-th="เครื่องมือสร้างบทพูด">เครื่องมือสร้างบทพูด</p>
   <h3 class="sec-title" data-en="Fill-in Template" data-th="เทมเพลตเติมคำ">เทมเพลตเติมคำ</h3>
   <div class="card template-card">
     <div class="tpl-line"><span class="tag tag-o">O</span> Have you heard about <input class="tpl" id="tplNews" data-en-ph="the news story…" data-th-ph="พาดหัวข่าว…" placeholder="the news story…" /></div>
@@ -135,7 +194,8 @@
 
 <!-- ================= 3. TECHNIQUE ================= -->
 <section class="page" id="page-technique">
-  <h2 class="page-title" data-en="30-Second Plan &amp; Speaking Tips" data-th="แผน 30 วินาที และเทคนิคการพูด">แผน 30 วินาที และเทคนิคการพูด</h2>
+  <p class="eyebrow" data-en="02 / Technique" data-th="02 / เทคนิค">02 / เทคนิค</p>
+  <h2 class="page-title" data-en="30-second plan &amp; speaking tips" data-th="แผน 30 วินาที และเทคนิคการพูด">แผน 30 วินาที และเทคนิคการพูด</h2>
   <p class="page-sub" data-en="Use every second of your preparation time with this timeline." data-th="ใช้ทุกวินาทีของเวลาเตรียมตัวให้คุ้มค่า">ใช้ทุกวินาทีของเวลาเตรียมตัวให้คุ้มค่า</p>
 
   <div class="timeline" id="timeline"></div>
@@ -150,6 +210,7 @@
     </div>
   </div>
 
+  <p class="eyebrow" data-en="Golden tips" data-th="เทคนิคทองคำ">เทคนิคทองคำ</p>
   <h3 class="sec-title" data-en="Golden Tips" data-th="เทคนิคทองคำ">เทคนิคทองคำ</h3>
   <div class="grid-2" id="tipsWrap"></div>
 
@@ -166,7 +227,8 @@
 
 <!-- ================= 4. EXAMPLES ================= -->
 <section class="page" id="page-examples">
-  <h2 class="page-title" data-en="10 Exam Headlines + Model Answers" data-th="10 หัวข้อข้อสอบ พร้อมบทพูดตัวอย่าง">10 หัวข้อข้อสอบ พร้อมบทพูดตัวอย่าง</h2>
+  <p class="eyebrow" data-en="03 / Archive" data-th="03 / คลังข้อสอบ">03 / คลังข้อสอบ</p>
+  <h2 class="page-title" data-en="10 exam headlines + model answers" data-th="10 หัวข้อข้อสอบ พร้อมบทพูดตัวอย่าง">10 หัวข้อข้อสอบ พร้อมบทพูดตัวอย่าง</h2>
 
   <div class="filters">
     <input type="search" id="topicSearch" class="search" placeholder="ค้นหาหัวข้อ / คำศัพท์…" data-en-ph="Search topics / vocabulary…" data-th-ph="ค้นหาหัวข้อ / คำศัพท์…" />
@@ -188,13 +250,14 @@
 
 <!-- ================= 5. PRACTICE ================= -->
 <section class="page" id="page-practice">
-  <h2 class="page-title" data-en="Practice Room" data-th="ห้องฝึกพูด">ห้องฝึกพูด</h2>
+  <p class="eyebrow" data-en="04 / Studio" data-th="04 / ห้องฝึก">04 / ห้องฝึก</p>
+  <h2 class="page-title" data-en="Practice room" data-th="ห้องฝึกพูด">ห้องฝึกพูด</h2>
 
   <div class="card">
     <div class="row wrap">
       <label class="lbl" for="pracTopic" data-en="Topic" data-th="หัวข้อ">หัวข้อ</label>
       <select id="pracTopic" class="select" aria-label="เลือกหัวข้อฝึกพูด"></select>
-      <button class="btn btn-accent" id="pracRandom" data-en="🎲 Random" data-th="🎲 สุ่มหัวข้อ">🎲 สุ่มหัวข้อ</button>
+      <button class="btn btn-line" id="pracRandom" data-en="🎲 Random" data-th="🎲 สุ่มหัวข้อ">🎲 สุ่มหัวข้อ</button>
     </div>
     <p class="topic-show" id="pracTopicText">—</p>
     <p class="topic-show th" id="pracTopicTH">—</p>
@@ -238,14 +301,15 @@
       <button class="btn btn-primary" id="noteSave" data-en="Save notes" data-th="บันทึกโน้ต">บันทึกโน้ต</button>
       <button class="btn btn-ghost" id="noteCopy" data-en="Copy notes" data-th="คัดลอกโน้ต">คัดลอกโน้ต</button>
       <button class="btn btn-ghost" id="noteClear" data-en="Clear notes" data-th="ล้างโน้ต">ล้างโน้ต</button>
-      <button class="btn btn-accent" id="pracDone" data-en="Mark as practised" data-th="บันทึกว่าฝึกแล้ว">บันทึกว่าฝึกแล้ว</button>
+      <button class="btn btn-line" id="pracDone" data-en="Mark as practised" data-th="บันทึกว่าฝึกแล้ว">บันทึกว่าฝึกแล้ว</button>
     </div>
   </div>
 </section>
 
 <!-- ================= 6. EXAM ================= -->
 <section class="page" id="page-exam">
-  <h2 class="page-title" data-en="Exam Simulator" data-th="จำลองข้อสอบ">จำลองข้อสอบ</h2>
+  <p class="eyebrow" data-en="05 / Live" data-th="05 / สนามจริง">05 / สนามจริง</p>
+  <h2 class="page-title" data-en="Exam simulator" data-th="จำลองข้อสอบ">จำลองข้อสอบ</h2>
   <p class="page-sub" data-en="30s prepare → 60s speak, automatically. No model answer until you finish." data-th="เตรียม 30 วินาที → พูด 60 วินาที อัตโนมัติ โดยไม่มี model answer จนกว่าคุณจะจบ">เตรียม 30 วินาที → พูด 60 วินาที อัตโนมัติ โดยไม่มี model answer จนกว่าคุณจะจบ</p>
 
   <div class="card exam-card" id="examCard">
@@ -296,7 +360,7 @@
       <div class="row wrap">
         <button class="btn btn-ghost" id="examShowCue" data-en="Show cues" data-th="ดูคำใบ้">ดูคำใบ้</button>
         <button class="btn btn-ghost" id="examShowModel" data-en="Show model answer" data-th="ดู Model Answer">ดู Model Answer</button>
-        <button class="btn btn-accent" data-go="progress" data-en="Rate myself" data-th="ไปประเมินตัวเอง">ไปประเมินตัวเอง</button>
+        <button class="btn btn-line" data-go="progress" data-en="Rate myself" data-th="ไปประเมินตัวเอง">ไปประเมินตัวเอง</button>
       </div>
       <div id="examCue" class="cue-card" hidden></div>
       <div id="examModel" class="model-box" hidden></div>
@@ -306,7 +370,8 @@
 
 <!-- ================= 7. QUIZ ================= -->
 <section class="page" id="page-quiz">
-  <h2 class="page-title" data-en="Language Quiz" data-th="แบบทดสอบภาษา">แบบทดสอบภาษา</h2>
+  <p class="eyebrow" data-en="06 / Check" data-th="06 / วัดผล">06 / วัดผล</p>
+  <h2 class="page-title" data-en="Language quiz" data-th="แบบทดสอบภาษา">แบบทดสอบภาษา</h2>
   <p class="page-sub" data-en="Opening · negative questions · past intention · vocabulary · the 5 steps." data-th="เปิดเรื่อง · คำถามเชิงลบ · ความตั้งใจในอดีต · คำศัพท์ · 5 ขั้นตอน">เปิดเรื่อง · คำถามเชิงลบ · ความตั้งใจในอดีต · คำศัพท์ · 5 ขั้นตอน</p>
 
   <div class="card quiz-head">
@@ -332,7 +397,8 @@
 
 <!-- ================= 8. PROGRESS ================= -->
 <section class="page" id="page-progress">
-  <h2 class="page-title" data-en="Self-Assessment &amp; Progress" data-th="ประเมินตนเองและความคืบหน้า">ประเมินตนเองและความคืบหน้า</h2>
+  <p class="eyebrow" data-en="07 / Report" data-th="07 / รายงานผล">07 / รายงานผล</p>
+  <h2 class="page-title" data-en="Self-assessment &amp; progress" data-th="ประเมินตนเองและความคืบหน้า">ประเมินตนเองและความคืบหน้า</h2>
 
   <div class="card">
     <h3 data-en="Rate yourself (1–5)" data-th="ให้คะแนนตัวเอง (1–5)">ให้คะแนนตัวเอง (1–5)</h3>
@@ -403,8 +469,31 @@
 
 <div id="toastWrap" class="toast-wrap" aria-live="polite" aria-atomic="true"></div>
 
+<!-- ================= FOOTER ================= -->
 <footer class="foot">
-  <p>Credit: bluejadev</p>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <strong>PITCH<span class="u4">04</span></strong>
+      <p data-en="A practice ground for Speaking Test Unit 4 — built for students, stored on your device." data-th="สนามฝึกสำหรับสอบพูดบทที่ 4 สร้างเพื่อนักเรียน เก็บข้อมูลไว้บนเครื่องคุณเอง">สนามฝึกสำหรับสอบพูดบทที่ 4 สร้างเพื่อนักเรียน เก็บข้อมูลไว้บนเครื่องคุณเอง</p>
+    </div>
+    <div class="foot-col">
+      <h4 data-en="Navigation" data-th="เมนู">เมนู</h4>
+      <button class="foot-link" data-go="home" data-en="Home" data-th="หน้าแรก">หน้าแรก</button>
+      <button class="foot-link" data-go="formula" data-en="Formula" data-th="สูตรพูด">สูตรพูด</button>
+      <button class="foot-link" data-go="examples" data-en="Examples" data-th="ตัวอย่าง">ตัวอย่าง</button>
+      <button class="foot-link" data-go="exam" data-en="Exam" data-th="จำลองสอบ">จำลองสอบ</button>
+    </div>
+    <div class="foot-col">
+      <h4 data-en="Practice" data-th="ฝึกซ้อม">ฝึกซ้อม</h4>
+      <button class="foot-link" data-go="practice" data-en="Practice room" data-th="ห้องฝึกพูด">ห้องฝึกพูด</button>
+      <button class="foot-link" data-go="quiz" data-en="Quiz" data-th="แบบทดสอบ">แบบทดสอบ</button>
+      <button class="foot-link" data-go="progress" data-en="Progress" data-th="ความคืบหน้า">ความคืบหน้า</button>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 · Speaking Test Unit 4</span>
+    <span>Credit: bluejadev</span>
+  </div>
 </footer>
 
 <script src="script.js"></script>
