@@ -27,7 +27,7 @@ function toast(msg) {
 }
 
 function copyText(text) {
-  const done = () => toast(L() === 'th' ? '✅ คัดลอกแล้ว' : '✅ Copied!');
+  const done = () => toast(L() === 'th' ? 'คัดลอกแล้ว' : 'Copied');
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(done).catch(() => fallback());
   } else fallback();
@@ -35,7 +35,7 @@ function copyText(text) {
     const ta = document.createElement('textarea');
     ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
     document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); done(); } catch (e) { toast('❌ Copy failed'); }
+    try { document.execCommand('copy'); done(); } catch (e) { toast('Copy failed'); }
     ta.remove();
   }
 }
@@ -624,7 +624,6 @@ function applyLang(root) {
 
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
-  $('#themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
   store.set('theme', t);
 }
 let fontLevel = store.get('font', 1);
@@ -663,7 +662,7 @@ function renderFormula() {
     <div class="pb-group" style="--sc:${g.c}">
       <h4><span class="pb-dot"></span>${lang === 'th' ? g.t_th : g.t_en}</h4>
       ${g.items.map(p => `<div class="pb-item"><span>${p}</span>
-        <button class="pb-copy" data-copy="${p.replace(/"/g, '&quot;')}" aria-label="คัดลอกประโยค">📋</button></div>`).join('')}
+        <button class="pb-copy" data-copy="${p.replace(/"/g, '&quot;')}" aria-label="คัดลอกประโยค"><svg class="ico" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button></div>`).join('')}
     </div>`).join('');
 }
 
@@ -714,11 +713,11 @@ function renderTopics() {
         <div class="tc-num">${t.id}</div>
         <div>
           <h3>${t.en}<span class="lv lv-${t.level}">${t.level}</span></h3>
-          <p class="tc-th" ${st.th ? '' : 'hidden'}>🇹🇭 ${t.th} — ${t.sumTh}</p>
+          <p class="tc-th" ${st.th ? '' : 'hidden'}><span class="th-tag">TH</span> ${t.th} — ${t.sumTh}</p>
         </div>
       </div>
       <div class="tc-body">
-        <div class="doc-title">🎬 <span>${t.title}</span></div>
+        <div class="doc-title"><span>${t.title}</span></div>
         <p class="muted small">${t.angle}</p>
         <p class="muted small" ${st.th ? '' : 'hidden'}>${t.angleTh}</p>
 
@@ -744,8 +743,8 @@ function renderTopics() {
         <div class="tc-actions">
           <button class="btn btn-ghost sm act-th">${st.th ? (lang === 'th' ? 'ซ่อนคำแปล' : 'Hide TH') : (lang === 'th' ? 'ดูคำแปล' : 'Show TH')}</button>
           <button class="btn btn-ghost sm act-model">${st.model ? (lang === 'th' ? 'ซ่อนตัวอย่าง' : 'Hide model') : (lang === 'th' ? 'ดูตัวอย่างบทพูด' : 'Show model')}</button>
-          <button class="btn btn-ghost sm act-copy">${lang === 'th' ? '📋 คัดลอกบทพูด' : '📋 Copy script'}</button>
-          <button class="btn btn-accent sm act-practice">${lang === 'th' ? '🎤 ฝึกหัวข้อนี้' : '🎤 Practise this'}</button>
+          <button class="btn btn-ghost sm act-copy">${lang === 'th' ? 'คัดลอกบทพูด' : 'Copy script'}</button>
+          <button class="btn btn-accent sm act-practice">${lang === 'th' ? 'ฝึกหัวข้อนี้' : 'Practise this'}</button>
         </div>
       </div>
     </article>`;
@@ -760,7 +759,7 @@ function modelHTML(t, tab) {
   }
   if (tab === 'challenge') {
     return `<p class="small muted">${lang === 'th' ? 'เวอร์ชันท้าทาย: ใช้เวอร์ชัน Normal แล้วอัปเกรดด้วยวลีเหล่านี้' : 'Challenge: upgrade the Normal version with these.'}</p>
-      ${t.challenge.map(c => `<div class="up">✦ ${c[0]}<i>${c[1]}</i></div>`).join('')}`;
+      ${t.challenge.map(c => `<div class="up">${c[0]}<i>${c[1]}</i></div>`).join('')}`;
   }
   return STEPS.map(s => `<span class="ms ms-${s.k.toLowerCase()}"><strong>${s.k}.</strong> ${t.model[s.k]}</span>`).join('') +
     `<p class="wc">${countWords(Object.values(t.model).join(' '))} words · ~${Math.round(countWords(Object.values(t.model).join(' ')) / 2.2)}s</p>`;
@@ -842,7 +841,7 @@ const pracTimer = new CountTimer(
       pracPhase = 'idle';
       $('#pracPhase').textContent = lang === 'th' ? 'จบแล้ว' : 'Finished';
       $('#page-practice .timer-card').classList.remove('is-speak');
-      toast(lang === 'th' ? '⏱️ ครบ 1 นาทีแล้ว เก่งมาก!' : '⏱️ One minute done!');
+      toast(lang === 'th' ? 'ครบ 1 นาทีแล้ว เก่งมาก' : 'One minute done');
       addHistory('practice', pracTopic.id);
     }
   }
@@ -909,7 +908,7 @@ const examTimer = new CountTimer(
       $('#examAfter').hidden = false;
       if (recorder && recorder.state === 'recording') stopRecording();
       addHistory('exam', examTopic.id);
-      toast(lang === 'th' ? '🎉 จบการสอบ! เปิดดูเฉลยได้แล้ว' : '🎉 Exam finished!');
+      toast(lang === 'th' ? 'จบการสอบ เปิดดูเฉลยได้แล้ว' : 'Exam finished');
     }
   }
 );
@@ -939,8 +938,8 @@ function recMsg(msg) { const el = $('#recMsg'); el.hidden = false; el.textConten
 async function startRecording() {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined') {
     recMsg(lang === 'th'
-      ? '⚠️ เบราว์เซอร์นี้อัดเสียงไม่ได้ ลองเปิดผ่าน Chrome/Safari และใช้ https หรือ localhost'
-      : '⚠️ Recording is not supported here. Use Chrome/Safari over https or localhost.');
+      ? 'เบราว์เซอร์นี้อัดเสียงไม่ได้ ลองเปิดผ่าน Chrome/Safari และใช้ https หรือ localhost'
+      : 'Recording is not supported here. Use Chrome/Safari over https or localhost.');
     return;
   }
   try {
@@ -955,21 +954,21 @@ async function startRecording() {
       $('#recDownload').href = url;
       $('#recPlayer').hidden = false;
       if (stream) stream.getTracks().forEach(t => t.stop());
-      toast(lang === 'th' ? '🎧 อัดเสียงเสร็จแล้ว ฟังย้อนหลังได้' : '🎧 Recording ready');
+      toast(lang === 'th' ? 'อัดเสียงเสร็จแล้ว ฟังย้อนหลังได้' : 'Recording ready');
     };
     recorder.start();
-    $('#recBtn').textContent = lang === 'th' ? '■ หยุดอัด' : '■ Stop';
+    $('#recBtn').textContent = lang === 'th' ? 'หยุดอัด' : 'Stop';
     $('#recBtn').classList.add('rec-on');
     $('#recMsg').hidden = true;
   } catch (e) {
     recMsg(lang === 'th'
-      ? '⚠️ ไม่สามารถใช้ไมโครโฟนได้ กรุณาอนุญาตสิทธิ์ไมโครโฟนในเบราว์เซอร์ แล้วลองใหม่ (ฝึกพูดต่อได้ตามปกติ)'
-      : '⚠️ Microphone unavailable. Please allow mic permission and try again.');
+      ? 'ไม่สามารถใช้ไมโครโฟนได้ กรุณาอนุญาตสิทธิ์ไมโครโฟนในเบราว์เซอร์ แล้วลองใหม่ (ฝึกพูดต่อได้ตามปกติ)'
+      : 'Microphone unavailable. Please allow mic permission and try again.');
   }
 }
 function stopRecording() {
   if (recorder && recorder.state !== 'inactive') recorder.stop();
-  $('#recBtn').textContent = lang === 'th' ? '● อัดเสียง' : '● Record voice';
+  $('#recBtn').textContent = lang === 'th' ? 'อัดเสียง' : 'Record voice';
   $('#recBtn').classList.remove('rec-on');
 }
 
@@ -984,7 +983,7 @@ function startQuiz() {
   updateQuizHead();
   $('#quizBody').innerHTML = quizSet.map((q, i) => qCardHTML(q, i)).join('');
   bindQuiz();
-  toast(lang === 'th' ? '🔀 สุ่มข้อสอบใหม่แล้ว' : '🔀 New set generated');
+  toast(lang === 'th' ? 'สุ่มข้อสอบใหม่แล้ว' : 'New set generated');
 }
 function qCardHTML(q, i) {
   const type = q.type === 'mcq' ? 'Multiple choice' : q.type === 'fill' ? 'Fill in' : 'Word order';
@@ -1021,7 +1020,7 @@ function showExp(i, ok, extra) {
   const el = $('#exp' + i);
   el.hidden = false;
   el.className = 'exp ' + (ok ? 'ok' : 'no');
-  el.innerHTML = (ok ? '✅ ' : '❌ ') + (extra ? extra + '<br>' : '') + quizSet[i].exp;
+  el.innerHTML = '<b class="exp-tag">' + (ok ? (lang === 'th' ? 'ถูกต้อง' : 'Correct') : (lang === 'th' ? 'ยังไม่ถูก' : 'Not quite')) + '</b> ' + (extra ? extra + '<br>' : '') + quizSet[i].exp;
   quizAnswered++; if (ok) quizCorrect++;
   updateQuizHead();
   if (quizAnswered === quizSet.length) finishQuiz();
@@ -1080,7 +1079,7 @@ function updateQuizHead() {
 function finishQuiz() {
   const pct = Math.round((quizCorrect / quizSet.length) * 100);
   const best = store.get('quizBest', 0);
-  if (pct > best) { store.set('quizBest', pct); toast(lang === 'th' ? '🏆 สถิติใหม่ ' + pct + '%' : '🏆 New best ' + pct + '%'); }
+  if (pct > best) { store.set('quizBest', pct); toast(lang === 'th' ? 'สถิติใหม่ ' + pct + '%' : 'New best ' + pct + '%'); }
   updateQuizHead();
   const msg = pct >= 90 ? (lang === 'th' ? 'ยอดเยี่ยมมาก! พร้อมสอบแล้ว' : 'Excellent! Exam-ready.')
     : pct >= 70 ? (lang === 'th' ? 'ดีมาก! ทบทวนข้อที่ผิดอีกนิด' : 'Good! Review your mistakes.')
@@ -1153,7 +1152,7 @@ function renderProgress() {
   $('#pgBarLab').textContent = done.length + ' / 10 ' + (lang === 'th' ? 'หัวข้อที่ฝึกแล้ว' : 'topics practised');
   $('#pgTopics').innerHTML = TOPICS.map(t => `
     <div class="pg-t ${done.indexOf(t.id) > -1 ? 'done' : ''}">
-      <b>${done.indexOf(t.id) > -1 ? '✅' : '⬜'}</b><span title="${t.en}">${t.id}. ${t.en}</span>
+      <b class="tick${done.indexOf(t.id) > -1 ? ' on' : ''}" aria-hidden="true"></b><span title="${t.en}">${t.id}. ${t.en}</span>
     </div>`).join('');
   const h = store.get('history', []);
   $('#historyList').innerHTML = h.length ? h.map(x => {
@@ -1206,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* home random */
   $('#homeRandom').addEventListener('click', () => {
     $('#homeRandomBox').hidden = false;
-    rollTopic('#homeRandomText', t => { setPracTopic(t.id); toast(lang === 'th' ? '🎲 ได้หัวข้อที่ ' + t.id : '🎲 Topic ' + t.id); });
+    rollTopic('#homeRandomText', t => { setPracTopic(t.id); toast(lang === 'th' ? 'ได้หัวข้อที่ ' + t.id : 'Topic ' + t.id); });
   });
 
   /* phrase copy (delegated) */
@@ -1216,7 +1215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* template */
-  $('#tplBuild').addEventListener('click', () => { buildTemplate(); toast(lang === 'th' ? '📝 สร้างบทพูดแล้ว' : '📝 Pitch built'); });
+  $('#tplBuild').addEventListener('click', () => { buildTemplate(); toast(lang === 'th' ? 'สร้างบทพูดแล้ว' : 'Pitch built'); });
   $('#tplCopy').addEventListener('click', () => copyText($('#tplOut').textContent || buildTemplate()));
   $('#tplClear').addEventListener('click', () => {
     $$('.template-card .tpl').forEach(i => i.value = '');
@@ -1264,7 +1263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.closest('.act-th')) { st.th = !st.th; renderTopics(); }
     else if (e.target.closest('.act-model')) { st.model = !st.model; renderTopics(); }
     else if (e.target.closest('.act-copy')) { copyText(scriptText(t, st.tab)); }
-    else if (e.target.closest('.act-practice')) { setPracTopic(id); go('practice'); toast(lang === 'th' ? '🎤 พร้อมฝึกหัวข้อ ' + id : '🎤 Ready: topic ' + id); }
+    else if (e.target.closest('.act-practice')) { setPracTopic(id); go('practice'); toast(lang === 'th' ? 'พร้อมฝึกหัวข้อ ' + id : 'Ready: topic ' + id); }
     else if (e.target.closest('.tab')) { st.tab = e.target.closest('.tab').dataset.tab; st.model = true; renderTopics(); }
   });
 
@@ -1273,7 +1272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#pracRandom').addEventListener('click', () => {
     const t = TOPICS[Math.floor(Math.random() * TOPICS.length)];
     setPracTopic(t.id); beep(900, .12, .12);
-    toast(lang === 'th' ? '🎲 สุ่มได้หัวข้อ ' + t.id : '🎲 Topic ' + t.id);
+    toast(lang === 'th' ? 'สุ่มได้หัวข้อ ' + t.id : 'Topic ' + t.id);
   });
   $('#pracStart').addEventListener('click', () => {
     pracPhase = 'prep'; pracLastSec = -1;
@@ -1292,14 +1291,14 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#pracSound').addEventListener('click', e => {
     soundOn = !soundOn; store.set('sound', soundOn);
     e.currentTarget.setAttribute('aria-pressed', String(soundOn));
-    e.currentTarget.textContent = soundOn ? (lang === 'th' ? '🔔 เสียง: เปิด' : '🔔 Sound: On') : (lang === 'th' ? '🔕 เสียง: ปิด' : '🔕 Sound: Off');
+    e.currentTarget.textContent = soundOn ? (lang === 'th' ? 'เสียง: เปิด' : 'Sound: On') : (lang === 'th' ? 'เสียง: ปิด' : 'Sound: Off');
   });
   $('#cueToggle').addEventListener('click', e => {
     const c = $('#cueCard'); const hide = c.style.display !== 'none';
     c.style.display = hide ? 'none' : 'grid';
     e.currentTarget.textContent = hide ? (lang === 'th' ? 'แสดง' : 'Show') : (lang === 'th' ? 'ซ่อน' : 'Hide');
   });
-  $('#noteSave').addEventListener('click', () => { store.set(noteKey(), collectNotes()); toast(lang === 'th' ? '💾 บันทึกโน้ตแล้ว' : '💾 Notes saved'); });
+  $('#noteSave').addEventListener('click', () => { store.set(noteKey(), collectNotes()); toast(lang === 'th' ? 'บันทึกโน้ตแล้ว' : 'Notes saved'); });
   $('#noteCopy').addEventListener('click', () => {
     const n = collectNotes();
     copyText(STEPS.map(s => s.k + ': ' + (n[s.k] || '-')).join('\n'));
@@ -1310,7 +1309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   $('#pracDone').addEventListener('click', () => {
     addHistory('practice', pracTopic.id);
-    toast(lang === 'th' ? '✅ บันทึกว่าฝึกหัวข้อนี้แล้ว' : '✅ Marked as practised');
+    toast(lang === 'th' ? 'บันทึกว่าฝึกหัวข้อนี้แล้ว' : 'Marked as practised');
   });
 
   /* exam */
@@ -1359,8 +1358,8 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#examShowModel').addEventListener('click', () => {
     if (!examTopic) return;
     const box = $('#examModel');
-    box.innerHTML = `<div class="doc-title">🎬 <span>${examTopic.title}</span></div>` + modelHTML(examTopic, 'normal') +
-      `<div class="row" style="margin-top:.6rem"><button class="btn btn-ghost sm" id="examCopy">📋 ${lang === 'th' ? 'คัดลอกบทพูด' : 'Copy script'}</button></div>`;
+    box.innerHTML = `<div class="doc-title"><span>${examTopic.title}</span></div>` + modelHTML(examTopic, 'normal') +
+      `<div class="row" style="margin-top:.6rem"><button class="btn btn-ghost sm" id="examCopy">${lang === 'th' ? 'คัดลอกบทพูด' : 'Copy script'}</button></div>`;
     box.hidden = !box.hidden;
     const cp = $('#examCopy'); if (cp) cp.addEventListener('click', () => copyText(scriptText(examTopic, 'normal')));
   });
@@ -1377,7 +1376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scores = store.get('scores', []); scores.unshift(total); store.set('scores', scores.slice(0, 40));
     addHistory('rate', +$('#rubTopic').value, total);
     renderProgress();
-    toast(lang === 'th' ? '💾 บันทึกผลประเมิน ' + total + '/35 แล้ว' : '💾 Saved ' + total + '/35');
+    toast(lang === 'th' ? 'บันทึกผลประเมิน ' + total + '/35 แล้ว' : 'Saved ' + total + '/35');
   });
   /* ---------- MODAL HELPERS (bug fix) ---------- */
   function openConfirm() {
@@ -1398,7 +1397,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store.clearAll();
     closeConfirm();
     renderHomeStats(); renderProgress(); updateQuizHead(); loadNotes();
-    toast(lang === 'th' ? '🗑️ ล้างข้อมูลทั้งหมดแล้ว' : '🗑️ All data cleared');
+    toast(lang === 'th' ? 'ล้างข้อมูลทั้งหมดแล้ว' : 'All data cleared');
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeConfirm(); });
 
