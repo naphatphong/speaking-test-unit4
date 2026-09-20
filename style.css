@@ -555,6 +555,64 @@ body.fs-mode main{padding-top:1.5rem}
 }
 
 /* =====================================================
+   ================= ICONS & MARKERS ===================
+   ===================================================== */
+.ico{width:1em;height:1em;display:block;fill:none;stroke:currentColor;
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* theme toggle: one SVG per mode, CSS picks */
+.ico-theme{display:grid;place-items:center;font-size:1.05rem}
+.ico-theme .ico{grid-area:1/1;transition:opacity .25s,transform .35s var(--ease)}
+.ico-sun{opacity:0;transform:rotate(-70deg) scale(.6)}
+.ico-moon{opacity:1;transform:none}
+html[data-theme="dark"] .ico-sun{opacity:1;transform:none}
+html[data-theme="dark"] .ico-moon{opacity:0;transform:rotate(70deg) scale(.6)}
+
+/* bottom nav icons */
+.mnav-ico{display:block;line-height:0}
+.mnav-ico svg{width:20px;height:20px;fill:none;stroke:currentColor;
+  stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .3s var(--ease)}
+.mnav.is-active .mnav-ico svg{transform:translateY(-1px) scale(1.06)}
+
+/* copy button in the phrase bank */
+.pb-copy .ico{width:15px;height:15px}
+
+/* record button: a real dot, drawn in CSS */
+#recBtn::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;flex-shrink:0}
+#recBtn.rec-on::before{border-radius:2px}
+
+/* TH translation tag */
+.th-tag{
+  display:inline-block;font-family:var(--font-display);font-size:.58rem;font-weight:600;
+  letter-spacing:.14em;border:1px solid var(--line);border-radius:4px;
+  padding:.05rem .32rem;margin-right:.45rem;color:var(--muted);vertical-align:.1em;
+}
+
+/* quiz verdict tag instead of ✅/❌ */
+.exp-tag{
+  font-family:var(--font-display);font-size:.62rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;margin-right:.5rem;
+}
+.exp.ok .exp-tag{color:var(--emerald)}
+.exp.no .exp-tag{color:var(--rose)}
+
+/* progress checklist tick, drawn in CSS */
+.pg-t .tick{
+  width:15px;height:15px;border:1.5px solid var(--line);border-radius:4px;
+  flex-shrink:0;position:relative;transition:.25s;
+}
+.pg-t.done .tick{background:var(--emerald);border-color:var(--emerald)}
+.pg-t.done .tick::after{
+  content:"";position:absolute;left:4.4px;top:1.4px;width:4px;height:8px;
+  border:solid #fff;border-width:0 1.8px 1.8px 0;transform:rotate(43deg);
+}
+
+/* challenge list marker */
+.up{position:relative;padding-left:1.1rem}
+.up::before{content:"";position:absolute;left:.35rem;top:1.05em;width:4px;height:1px;background:var(--accent)}
+
+/* =====================================================
    ================= MOTION LAYER ======================
    ===================================================== */
 .scroll-prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;background:var(--accent);
