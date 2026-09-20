@@ -408,3 +408,109 @@ body.fs-mode main{padding-top:1rem}
   .page{animation:none}
 }
 @media print{.topbar,.nav-mobile,.toast-wrap,.foot{display:none}}
+
+/* =====================================================
+   ============ MOTION LAYER (AURA-style) ==============
+   ===================================================== */
+
+/* ---- scroll progress bar ---- */
+.scroll-prog{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;
+  background:var(--accent);transform:scaleX(0);transform-origin:0 50%;
+  will-change:transform;pointer-events:none;
+}
+
+/* ---- custom cursor ---- */
+.cur-dot,.cur-ring{
+  position:fixed;top:0;left:0;z-index:999;pointer-events:none;
+  border-radius:50%;mix-blend-mode:difference;will-change:transform;
+}
+.cur-dot{width:6px;height:6px;background:#fff;margin:-3px 0 0 -3px}
+.cur-ring{
+  width:38px;height:38px;border:1px solid rgba(255,255,255,.65);margin:-19px 0 0 -19px;
+  transition:width .25s ease,height .25s ease,margin .25s ease,border-color .25s ease,opacity .25s ease;
+}
+body.cur-hot .cur-ring{width:64px;height:64px;margin:-32px 0 0 -32px;border-color:var(--accent)}
+body.cur-hide .cur-dot,body.cur-hide .cur-ring{opacity:0}
+@media (hover:none),(pointer:coarse){.cur-dot,.cur-ring{display:none}}
+
+/* ---- scroll reveal ---- */
+html.motion-on .rv{opacity:0;transform:translateY(26px);will-change:opacity,transform}
+html.motion-on .rv-in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv-up{transform:translateY(40px)}
+.rv-left{transform:translateX(-30px)}
+
+/* ---- hero entrance stagger ---- */
+html.motion-on .hero .pill,html.motion-on .hero h1,
+html.motion-on .hero-sub,html.motion-on .hero-actions{opacity:0;transform:translateY(30px)}
+.hero.lit .pill{animation:heroUp .8s cubic-bezier(.22,1,.36,1) .05s forwards}
+.hero.lit h1{animation:heroUp .9s cubic-bezier(.22,1,.36,1) .16s forwards}
+.hero.lit .hero-sub{animation:heroUp .9s cubic-bezier(.22,1,.36,1) .28s forwards}
+.hero.lit .hero-actions{animation:heroUp .9s cubic-bezier(.22,1,.36,1) .4s forwards}
+@keyframes heroUp{to{opacity:1;transform:none}}
+
+/* ---- marquee ticker ---- */
+.marquee{
+  position:relative;overflow:hidden;margin:0 0 1.8rem;padding:.85rem 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{
+  display:inline-flex;align-items:center;gap:1.4rem;padding-right:1.4rem;
+  font-family:var(--font-display);font-weight:700;font-size:1.05rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap;
+}
+.marquee-track span::after{content:"◆";color:var(--accent);font-size:.6rem}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---- sliding tab indicator ---- */
+.nav-desktop{position:relative}
+.nav-ind{
+  position:absolute;top:0;left:0;height:100%;border-radius:999px;background:var(--accent);
+  z-index:0;transition:transform .42s cubic-bezier(.22,1,.36,1),width .42s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+.nav-ind.idle{opacity:0}
+.nav-btn{position:relative;z-index:1}
+.nav-btn.is-active{background:transparent}
+
+/* ---- topbar auto-hide ---- */
+.topbar{transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .3s}
+body.nav-up .topbar{transform:translateY(-105%)}
+
+/* ---- page switch transition ---- */
+.page.is-active{animation:pageIn .5s cubic-bezier(.22,1,.36,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ---- magnetic + hover polish ---- */
+.btn{will-change:transform}
+.btn-primary,.btn-accent{position:relative;overflow:hidden}
+.btn-primary::after,.btn-accent::after{
+  content:"";position:absolute;inset:0;background:rgba(255,255,255,.22);
+  transform:translateX(-101%);transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+.btn-primary:hover::after,.btn-accent:hover::after{transform:translateX(101%)}
+
+/* ---- topic rows: hover reveal like a works table ---- */
+.topic-card{transition:border-color .3s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.topic-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.tc-num{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.topic-card:hover .tc-num{transform:rotate(-8deg) scale(1.08)}
+
+.card,.step,.pb-group,.tip,.q-card{transition:border-color .3s ease,transform .35s cubic-bezier(.22,1,.36,1)}
+.card:hover,.step:hover,.pb-group:hover,.tip:hover{transform:translateY(-2px)}
+
+/* ---- counters ---- */
+.stat-num,.rule-num,.big-count,.total{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none}
+  .marquee-track{animation:none}
+  .hero .pill,.hero h1,.hero-sub,.hero-actions{opacity:1;transform:none;animation:none}
+  .cur-dot,.cur-ring{display:none}
+  .page.is-active{animation:none}
+  body.nav-up .topbar{transform:none}
+}
