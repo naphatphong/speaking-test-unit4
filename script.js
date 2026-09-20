@@ -1406,3 +1406,208 @@ document.addEventListener('DOMContentLoaded', () => {
   go(store.get('page', 'home'));
   applyLang();
 });
+/* =========================================================
+   ============ 14. MOTION LAYER (AURA-style) ==============
+   Scroll reveal · custom cursor · marquee · magnetic buttons
+   · sliding tab indicator · counters · page transitions
+   ========================================================= */
+(function motionLayer() {
+  if (REDUCED) return;
+  // only now is it safe for CSS to hide things for animation
+  document.documentElement.classList.add('motion-on');
+
+  /* ---------- 14.1 scroll progress bar ---------- */
+  const prog = document.createElement('div');
+  prog.className = 'scroll-prog';
+  document.body.appendChild(prog);
+
+  /* ---------- 14.2 custom cursor ---------- */
+  const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  let dot, ring;
+  if (fine) {
+    dot  = document.createElement('div'); dot.className  = 'cur-dot';
+    ring = document.createElement('div'); ring.className = 'cur-ring';
+    document.body.append(dot, ring);
+
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+
+    addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px,${my}px)`;
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => document.body.classList.add('cur-hide'));
+    document.addEventListener('mouseenter', () => document.body.classList.remove('cur-hide'));
+
+    const HOT = 'a,button,input,select,textarea,.choice,.wd,.tl,.fchip,.tab,.pb-item,.topic-card';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(HOT)) document.body.classList.add('cur-hot');
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(HOT)) document.body.classList.remove('cur-hot');
+    });
+
+    (function ringLoop() {
+      rx += (mx - rx) * 0.16;
+      ry += (my - ry) * 0.16;
+      ring.style.transform = `translate(${rx}px,${ry}px)`;
+      requestAnimationFrame(ringLoop);
+    })();
+  }
+
+  /* ---------- 14.3 scroll reveal ---------- */
+  const REVEAL_SEL = [
+    '.card', '.step', '.mn', '.pb-group', '.topic-card', '.tip', '.tl',
+    '.q-card', '.sec-title', '.stat', '.chip', '.model-box', '.timeline'
+  ].join(',');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const el = en.target;
+      const d = +(el.dataset.rvDelay || 0);
+      setTimeout(() => el.classList.add('rv-in'), d);
+      countUp(el);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  function scan() {
+    document.querySelectorAll(REVEAL_SEL).forEach(el => {
+      if (el.classList.contains('rv') || el.classList.contains('rv-in')) return;
+      el.classList.add('rv');
+      io.observe(el);
+    });
+    // stagger siblings inside the same container
+    document.querySelectorAll('.grid-2,.grid-3,.mnemo,.steps,.phrase-bank,.topic-list,.timeline,.stat-row')
+      .forEach(wrap => {
+        [...wrap.children].forEach((child, i) => {
+          if (child.classList.contains('rv') && !child.dataset.rvDelay) {
+            child.dataset.rvDelay = Math.min(i * 70, 420);
+          }
+        });
+      });
+  }
+
+  /* ---------- 14.4 number count-up ---------- */
+  function countUp(el) {
+    const targets = el.matches('.stat-num,.rule-num,.big-count')
+      ? [el] : [...el.querySelectorAll('.stat-num,.rule-num,.big-count')];
+
+    targets.forEach(n => {
+      if (n.dataset.counted) return;
+      const raw = n.textContent.trim();
+      const m = raw.match(/^(\d+)(.*)$/);      // leading integer only
+      if (!m) return;
+      const end = +m[1], suffix = m[2] || '';
+      if (end === 0 || end > 100000) return;
+      n.dataset.counted = '1';
+      const dur = 900, t0 = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        n.textContent = Math.round(end * eased) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+
+  /* ---------- 14.5 sliding tab indicator ---------- */
+  const navWrap = $('.nav-desktop');
+  let ind = null;
+  if (navWrap) {
+    ind = document.createElement('span');
+    ind.className = 'nav-ind idle';
+    navWrap.appendChild(ind);
+  }
+  function moveIndicator() {
+    if (!navWrap || !ind) return;
+    const act = navWrap.querySelector('.nav-btn.is-active');
+    if (!act || !act.offsetParent) { ind.classList.add('idle'); return; }
+    ind.classList.remove('idle');
+    ind.style.width = act.offsetWidth + 'px';
+    ind.style.transform = `translateX(${act.offsetLeft}px)`;
+  }
+  addEventListener('resize', moveIndicator);
+
+  /* ---------- 14.6 magnetic buttons ---------- */
+  function magnetize(el) {
+    if (el.dataset.mag) return;
+    el.dataset.mag = '1';
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      el.style.transform = `translate(${x * 0.18}px, ${y * 0.3}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  }
+  function scanMagnets() {
+    if (!fine) return;
+    document.querySelectorAll('.btn-primary,.btn-accent,.tool-btn').forEach(magnetize);
+  }
+
+  /* ---------- 14.7 topbar auto-hide + progress ---------- */
+  let lastY = 0, ticking = false;
+  function onScroll() {
+    const y = scrollY;
+    const h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+
+    if (y > lastY && y > 220) document.body.classList.add('nav-up');
+    else document.body.classList.remove('nav-up');
+    lastY = y;
+    ticking = false;
+  }
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+
+  /* ---------- 14.8 hero entrance ---------- */
+  function litHero() {
+    const h = document.querySelector('.page.is-active .hero');
+    if (!h) return;
+    h.classList.remove('lit');
+    void h.offsetWidth;          // force reflow so the animation replays
+    h.classList.add('lit');
+  }
+
+  /* ---------- 14.9 hook into the router ---------- */
+  const rawGo = window.go;
+  if (typeof rawGo === 'function') {
+    window.go = function (page) {
+      rawGo(page);
+      requestAnimationFrame(() => {
+        moveIndicator();
+        litHero();
+        scan();
+        scanMagnets();
+        setTimeout(revealInView, 450);
+      });
+    };
+  }
+
+  /* ---------- 14.10 watch for dynamically rendered content ---------- */
+  let pending = null;
+  new MutationObserver(() => {
+    clearTimeout(pending);
+    pending = setTimeout(() => { scan(); scanMagnets(); }, 90);
+  }).observe(document.getElementById('main'), { childList: true, subtree: true });
+
+  /* ---------- 14.11 failsafe: nothing may stay invisible ---------- */
+  function revealInView() {
+    document.querySelectorAll('.page.is-active .rv:not(.rv-in)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0) { el.classList.add('rv-in'); countUp(el); }
+    });
+  }
+  addEventListener('load', () => setTimeout(revealInView, 600));
+
+  /* ---------- 14.12 boot ---------- */
+  function boot() {
+    scan(); scanMagnets(); moveIndicator(); litHero(); onScroll();
+    setTimeout(revealInView, 500);
+  }
+  if (document.readyState === 'loading') addEventListener('DOMContentLoaded', () => setTimeout(boot, 60));
+  else setTimeout(boot, 60);
+})();
