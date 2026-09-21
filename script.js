@@ -646,9 +646,10 @@ function go(page) {
 
 /* ---------- 7. RENDER: FORMULA ---------- */
 function renderFormula() {
-  $('#mnemo').innerHTML = STEPS.map(s => `
-    <div class="mn" style="background:linear-gradient(135deg,${s.c},color-mix(in srgb,${s.c} 55%, #1e1b4b))">
-      <b>${s.k}</b><span>${lang === 'th' ? s.th : s.en}</span>
+  $('#mnemo').innerHTML = STEPS.map((s, i) => `
+    <div class="mn" style="--sc:${s.c}">
+      <span class="mn-no">${String(i + 1).padStart(2, '0')}</span>
+      <b>${s.k}</b><span class="mn-lab">${lang === 'th' ? s.th : s.en}</span>
     </div>`).join('');
 
   $('#stepsWrap').innerHTML = STEPS.map((s, i) => `
