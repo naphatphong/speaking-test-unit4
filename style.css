@@ -4,7 +4,7 @@
 
 /* ============ TOKENS ============ */
 :root{
-  --accent:#D7FF3E; --accent-ink:#0a0a0a;
+  --accent:#D7FF3E; --accent-ink:#0a0a0a; --tag-ink:#5a6b00;
   --emerald:#22c55e; --amber:#f59e0b; --rose:#f43f5e;
 
   --bg:#f4f3ee;
@@ -33,7 +33,7 @@
   --maxw:1240px;
 }
 html[data-theme="dark"]{
-  --bg:#050505; --bg-2:#0b0b0b; --surface:#0c0c0c; --surface-2:#121212;
+  --bg:#050505; --bg-2:#0b0b0b; --surface:#0c0c0c; --surface-2:#121212; --tag-ink:#D7FF3E;
   --text:#f4f4f0; --muted:#8a8a83;
   --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.07);
   --shadow-lg:0 30px 90px -30px rgba(0,0,0,.8);
@@ -346,6 +346,7 @@ main{max-width:var(--maxw);margin:0 auto;padding:2rem 1.4rem 7rem}
 .tip{background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;padding:1.2rem}
 .tip b{display:block;margin-bottom:.3rem;font-family:var(--font-display);font-size:1rem}
 .tip span{color:var(--muted);font-size:.9rem}
+.tip .tip-tag{display:block;margin-bottom:.55rem;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tag-ink)}
 .chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0}
 .chip{border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.8rem;transition:.2s}
 .chip:hover{border-color:var(--accent);color:var(--accent)}

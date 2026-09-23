@@ -109,14 +109,77 @@ const PHRASES = [
 ];
 
 const TIPS = [
-  { en: 'Memorise the structure, not every word.', th: 'จำโครงสร้าง ไม่ต้องจำทุกคำ — จำ O-P-C-D-I ก็พูดได้ทั้งนาที' },
-  { en: 'Use short, clear sentences.', th: 'ใช้ประโยคสั้นและชัดเจน ประโยคยาวมักพังกลางทาง' },
-  { en: 'Use First, Also, However and Finally.', th: 'ใช้คำเชื่อม First, Also, However, Finally เพื่อให้ฟังเป็นระบบ' },
-  { en: 'Aim for 110–140 words in one minute.', th: 'พูดประมาณ 110–140 คำใน 1 นาที (ราว 2 คำ/วินาที)' },
-  { en: 'Stuck? Say “The documentary would focus on…”', th: 'ถ้าคิดไม่ออก ให้พูด “The documentary would focus on…” แล้วเล่าต่อ' },
-  { en: 'Always end with Purpose and Impact.', th: 'จบด้วย Purpose & Impact เสมอ อย่าปล่อยให้เวลาหมดกลางประโยค' },
-  { en: 'Name three groups of interviewees.', th: 'ระบุผู้ให้สัมภาษณ์อย่างน้อย 3 กลุ่ม ทำให้ไอเดียดูเป็นมืออาชีพ' },
-  { en: 'Slow down at the first and last sentence.', th: 'พูดช้าลงตรงประโยคแรกและประโยคสุดท้าย เพื่อให้กรรมการจับใจความได้' }
+  /* --- OPENING: เปิดได้ทุกหัวข้อ --- */
+  { tag: 'เปิดเรื่อง · Opening',
+    en: 'Have you heard about the story that everyone is talking about at the moment?',
+    th: 'เปิดได้ทุกหัวข้อ ไม่ต้องรู้ชื่อข่าวด้วยซ้ำ — ใช้เมื่อนึกชื่อเรื่องไม่ออก' },
+  { tag: 'เปิดเรื่อง · Opening',
+    en: 'Did you hear the news about …? It has been everywhere this week.',
+    th: 'เติมชื่อหัวข้อในช่องว่าง แล้วปิดด้วยประโยคที่สอง ทำให้ดูเป็นข่าวสด' },
+
+  /* --- PURPOSE: คำถามเชิงลบที่ใช้ได้ทุกเรื่อง --- */
+  { tag: 'จุดประสงค์ · Purpose',
+    en: 'Wouldn’t it be good to film a documentary that finally explains the whole story?',
+    th: 'ใช้ได้ทุกหัวข้อ ไม่ต้องเติมอะไรเลย' },
+  { tag: 'จุดประสงค์ · Purpose',
+    en: 'Don’t you think people deserve to know what really happened?',
+    th: 'คำถามเชิงลบที่ใช้ได้กับทุกข่าว เพราะไม่มีชื่อเรื่องอยู่เลย' },
+  { tag: 'จุดประสงค์ · Purpose',
+    en: 'Isn’t it time somebody looked at this properly?',
+    th: 'สั้น จำง่าย ใช้แทนประโยคยาวได้เมื่อเวลากระชั้น' },
+
+  /* --- CORE NEWS: สรุปข่าวแบบไม่ต้องจำรายละเอียด --- */
+  { tag: 'สรุปข่าว · Core News',
+    en: 'Apparently, it started as something small, but it quickly got out of control.',
+    th: 'ใช้เล่าข่าวได้เกือบทุกเรื่อง เพราะข่าวส่วนใหญ่เริ่มจากเรื่องเล็ก' },
+  { tag: 'สรุปข่าว · Core News',
+    en: 'It was all over the news for weeks, and people are still arguing about it.',
+    th: 'บอกว่าข่าวดังและยังเป็นที่ถกเถียง ช่วยยืดเวลาได้ดี' },
+  { tag: 'สรุปข่าว · Core News',
+    en: 'They intended to …, but shockingly, the result was the complete opposite.',
+    th: 'สูตร past intention + หักมุม — เติมแค่สิ่งที่เขาตั้งใจจะทำ' },
+
+  /* --- IDEA: ขยายไอเดียสารคดีได้ทุกเรื่อง --- */
+  { tag: 'ไอเดียสารคดี · Idea',
+    en: 'The documentary would focus on one real story and follow it from beginning to end.',
+    th: 'ประโยคช่วยชีวิต — คิดอะไรไม่ออกให้พูดประโยคนี้ก่อน' },
+  { tag: 'ไอเดียสารคดี · Idea',
+    en: 'It would include interviews with the experts, the people affected, and ordinary viewers like us.',
+    th: 'ครบ 3 กลุ่มในประโยคเดียว ใช้ได้กับทุกหัวข้อ' },
+  { tag: 'ไอเดียสารคดี · Idea',
+    en: 'First, we would show what everyone already knows. However, we would then show what nobody talks about.',
+    th: 'คู่ First… However… ที่ทำให้ไอเดียดูมีมุมทันที' },
+  { tag: 'ไอเดียสารคดี · Idea',
+    en: 'We would film in the places where it actually happens, not in a studio.',
+    th: 'เพิ่มความน่าเชื่อถือให้ไอเดีย ใช้ได้ทุกหัวข้อ' },
+
+  /* --- CLOSING: บรรทัดปิดท้ายกว้าง ๆ ใช้ได้ทุกหัวข้อ --- */
+  { tag: '⭐ ปิดท้าย · Closing',
+    en: 'After watching it, viewers may never look at … the same way again.',
+    th: 'บรรทัดปิดท้ายที่ปลอดภัยที่สุด — เติมแค่หัวข้อลงช่องว่าง' },
+  { tag: '⭐ ปิดท้าย · Closing',
+    en: 'By the end, the audience would understand why this matters to all of us.',
+    th: 'ใช้ได้ทุกหัวข้อ ไม่ต้องเติมคำเลย' },
+  { tag: '⭐ ปิดท้าย · Closing',
+    en: 'The film would leave viewers with one simple question: what would you do?',
+    th: 'ปิดด้วยคำถาม ดูเป็นมืออาชีพมาก' },
+  { tag: '⭐ ปิดท้าย · Closing',
+    en: 'After watching it, viewers may think twice before they … again.',
+    th: 'เติมกริยาสั้น ๆ เช่น share / buy / believe' },
+  { tag: '⭐ ปิดท้าย · Closing',
+    en: 'In the end, the documentary would not give answers — it would give better questions.',
+    th: 'ปิดสวย ใช้เมื่อเหลือเวลาสัก 5 วินาที' },
+
+  /* --- RECOVERY: ซื้อเวลาตอนคิดไม่ออก --- */
+  { tag: 'ซื้อเวลา · Recovery',
+    en: 'I can’t remember all the details, but basically, …',
+    th: 'นึกข้อมูลไม่ออกก็พูดประโยคนี้ แล้วเล่าต่อแบบกว้าง ๆ' },
+  { tag: 'ซื้อเวลา · Recovery',
+    en: 'To be honest, that is exactly why it would make a powerful documentary.',
+    th: 'ใช้ดึงกลับเข้าหัวข้อเมื่อพูดหลุดทาง' },
+  { tag: 'ซื้อเวลา · Recovery',
+    en: 'More importantly, this is not really about … — it is about all of us.',
+    th: 'ยกระดับประเด็นให้ฟังดูลึก ใช้ก่อนปิดท้ายได้' }
 ];
 
 const PLAN = [
@@ -689,7 +752,7 @@ function renderTechnique() {
       <span class="tl-time">${p.t}</span>
       <div><b>${p.en}</b><small>${p.th}</small></div>
     </div>`).join('');
-  $('#tipsWrap').innerHTML = TIPS.map(t => `<div class="tip"><b>${t.en}</b><span>${t.th}</span></div>`).join('');
+  $('#tipsWrap').innerHTML = TIPS.map(t => `<div class="tip"><span class="tip-tag">${t.tag}</span><b>${t.en}</b><span>${t.th}</span></div>`).join('');
 }
 
 /* ---------- 9. RENDER: EXAMPLES ---------- */
