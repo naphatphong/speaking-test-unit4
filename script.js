@@ -791,9 +791,8 @@ function go(page) {
 function renderFormula() {
   $('#mnemo').innerHTML = STEPS.map((s, i) => `
     <div class="mn" style="--sc:${s.c}">
-      <span class="mn-no">0${i + 1}</span>
-      <b>${s.k}</b>
-      <span class="mn-lab">${lang === 'th' ? s.th : s.en}</span>
+      <span class="mn-no">${String(i + 1).padStart(2, '0')}</span>
+      <b>${s.k}</b><span class="mn-lab">${lang === 'th' ? s.th : s.en}</span>
     </div>`).join('');
 
   $('#stepsWrap').innerHTML = STEPS.map((s, i) => `
