@@ -222,7 +222,15 @@ const TOPICS = [
     D: 'The documentary would focus on one fake clip and follow it for seven days. It would include interviews with fact-checkers, AI engineers, and teenagers who share videos every day. First, we show how the clip is built. Also, we test real people on the street. However, we never explain the tools step by step.',
     I: 'After watching it, viewers may become more careful, verify what they see, and think twice before pressing share.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องวิดีโอที่สร้างด้วย AI ไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีเข้มข้นสักเรื่องเกี่ยวกับเรื่องนี้ ไม่คิดเหรอว่าคนควรรู้ว่าพวกเขาถูกหลอกได้ง่ายแค่ไหน',
+    C: 'เท่าที่ทราบ คลิปปลอมของนักการเมืองชื่อดังถูกแชร์เป็นล้านครั้งภายในคืนเดียว ข่าวนี้ดังไปทั่ว คนทำตั้งใจจะพิสูจน์บางอย่าง แต่ที่น่าตกใจคือ แทบไม่มีใครตรวจสอบแหล่งที่มาก่อนเลย',
+    D: 'สารคดีจะโฟกัสที่คลิปปลอมเพียงคลิปเดียว แล้วตามติดเป็นเวลา 7 วัน จะมีการสัมภาษณ์นักตรวจสอบข่าว วิศวกร AI และวัยรุ่นที่แชร์คลิปทุกวัน อย่างแรก เราจะแสดงให้เห็นว่าคลิปถูกสร้างขึ้นมาอย่างไร นอกจากนี้ เรายังทดสอบกับคนจริงตามท้องถนน อย่างไรก็ตาม เราจะไม่อธิบายวิธีใช้เครื่องมือแบบทีละขั้นเด็ดขาด',
+    I: 'หลังดูจบ ผู้ชมอาจระมัดระวังมากขึ้น ตรวจสอบสิ่งที่เห็น และคิดให้ดีอีกครั้งก่อนกดแชร์'
+  },
   easy: 'Have you heard about AI videos and fake news? Wouldn’t it be good to make a documentary about this? Apparently, a fake video of a politician was shared millions of times. It was all over the news. The documentary would focus on one fake clip. It would include interviews with fact-checkers, AI engineers, and teenagers. After watching it, viewers may check the source before they share.',
+  easyTh: 'เคยได้ยินเรื่องคลิป AI กับข่าวปลอมไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ คลิปปลอมของนักการเมืองถูกแชร์เป็นล้านครั้ง ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่คลิปปลอมคลิปเดียว จะมีการสัมภาษณ์นักตรวจสอบข่าว วิศวกร AI และวัยรุ่น หลังดูจบ ผู้ชมอาจตรวจสอบแหล่งที่มาก่อนแชร์',
   challenge: [
     ['Wouldn’t you say the truth now needs a bodyguard?', 'คำถามเชิงลบแบบมีภาพเปรียบเทียบ ทำให้พิตช์น่าจดจำ'],
     ['a chilling, fast-paced investigation', 'อัปเกรดคำคุณศัพท์แทนคำว่า interesting'],
@@ -260,7 +268,15 @@ const TOPICS = [
     D: 'The documentary would follow one challenge from the very first post to the hospital bed. It would include interviews with teenagers, worried parents, and emergency doctors. First, we show the fun side. However, we also show the hidden cost.',
     I: 'After watching it, viewers may recognise peer pressure, protect their friends, and refuse to film something dangerous.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องโพสต์บนโซเชียลมีเดียกับพฤติกรรมเสี่ยงของวัยรุ่นไหม',
+    P: 'ไม่คิดเหรอว่าน่าจะดีกว่าถ้าเราสร้างสารคดีทรงพลังสักเรื่องเกี่ยวกับเรื่องนี้ อยากรู้ไหมว่าทำไมยอดไลก์ถึงมีค่ามากกว่าความปลอดภัย',
+    C: 'เท่าที่ทราบ กลุ่มนักเรียนกลุ่มหนึ่งเลียนแบบชาเลนจ์อันตรายจากคลิปสั้น แล้วสองคนต้องเข้าโรงพยาบาล ข่าวนี้ดังไปทั่ว พวกเขาตั้งใจจะทำคลิปตลกให้เพื่อนดู แต่ที่น่าตกใจคือ คลิปนั้นเข้าถึงคนครึ่งล้านภายในวันเดียว',
+    D: 'สารคดีจะตามติดชาเลนจ์หนึ่งอย่าง ตั้งแต่โพสต์แรกสุดจนถึงเตียงคนไข้ จะมีการสัมภาษณ์วัยรุ่น พ่อแม่ที่เป็นห่วง และแพทย์ห้องฉุกเฉิน อย่างแรก เราจะแสดงด้านที่สนุก อย่างไรก็ตาม เราจะแสดงราคาที่ซ่อนอยู่ด้วย',
+    I: 'หลังดูจบ ผู้ชมอาจรู้ทันแรงกดดันจากเพื่อน ปกป้องเพื่อนของตัวเอง และปฏิเสธที่จะถ่ายคลิปอันตราย'
+  },
   easy: 'Have you heard about risky posts on social media? Don’t you think we should make a documentary about this? Apparently, some students copied a dangerous challenge and two of them were hurt. It was all over the news. The documentary would focus on one challenge. It would include interviews with teenagers, parents, and doctors. After watching it, viewers may say no to dangerous trends.',
+  easyTh: 'เคยได้ยินเรื่องโพสต์เสี่ยงบนโซเชียลมีเดียไหม ไม่คิดเหรอว่าเราควรทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ นักเรียนบางคนเลียนแบบชาเลนจ์อันตราย แล้วสองคนได้รับบาดเจ็บ ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่ชาเลนจ์หนึ่งอย่าง จะมีการสัมภาษณ์วัยรุ่น พ่อแม่ และแพทย์ หลังดูจบ ผู้ชมอาจปฏิเสธเทรนด์อันตราย',
   challenge: [
     ['Isn’t it time we asked what a “like” really costs?', 'คำถามเชิงลบที่ทรงพลัง'],
     ['a raw, emotional portrait of teenage life', 'อัปเกรดคำบรรยายสารคดี'],
@@ -298,7 +314,15 @@ const TOPICS = [
     D: 'The documentary would focus on one true story and its misleading headline. It would include interviews with newspaper editors, ordinary commuters, and media lecturers. First, we show the headline. Also, we read the full article aloud. However, the two versions tell completely different stories.',
     I: 'After watching it, viewers may slow down, open the article, and form an opinion only when they know the whole story.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องคนที่อ่านแค่พาดหัวข่าวไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีเข้มข้นสักเรื่องเกี่ยวกับเรื่องนี้ ถึงเวลาแล้วหรือยังที่จะถามว่าเราพลาดอะไรไปบ้างในทุกเช้า',
+    C: 'เท่าที่ทราบ งานวิจัยล่าสุดพบว่าผู้อ่านส่วนใหญ่แชร์บทความหลังอ่านแค่แปดคำแรก เรื่องนี้ถูกรายงานอย่างกว้างขวาง บรรณาธิการตั้งใจจะประหยัดเวลาให้เราด้วยพาดหัวสั้น ๆ แต่ที่น่าตกใจคือ ตอนนี้พาดหัวเหล่านั้นเข้ามาแทนที่ตัวข่าวไปเลย',
+    D: 'สารคดีจะโฟกัสที่เรื่องจริงหนึ่งเรื่องกับพาดหัวที่ชวนเข้าใจผิดของมัน จะมีการสัมภาษณ์บรรณาธิการหนังสือพิมพ์ คนเดินทางทั่วไป และอาจารย์ด้านสื่อ อย่างแรก เราจะแสดงพาดหัว นอกจากนี้ เราจะอ่านบทความเต็มออกเสียง อย่างไรก็ตาม สองเวอร์ชันนี้เล่าคนละเรื่องกันเลย',
+    I: 'หลังดูจบ ผู้ชมอาจช้าลง เปิดอ่านบทความ และตัดสินใจก็ต่อเมื่อรู้เรื่องทั้งหมดแล้ว'
+  },
   easy: 'Have you heard about people who read only headlines? Wouldn’t it be good to make a documentary about this? Apparently, many readers share a story after reading only eight words. It was all over the news. The documentary would focus on one headline and the real story behind it. It would include interviews with editors, readers, and teachers. After watching it, viewers may read the full article first.',
+  easyTh: 'เคยได้ยินเรื่องคนที่อ่านแค่พาดหัวข่าวไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ ผู้อ่านหลายคนแชร์ข่าวหลังอ่านแค่แปดคำ ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่พาดหัวหนึ่งอันกับเรื่องจริงที่อยู่เบื้องหลัง จะมีการสัมภาษณ์บรรณาธิการ ผู้อ่าน และครู หลังดูจบ ผู้ชมอาจอ่านบทความเต็มก่อน',
   challenge: [
     ['Don’t you think a headline is a promise the article often breaks?', 'คำถามเชิงลบ + อุปมา'],
     ['a quietly devastating look at modern reading', 'ภาษาสไตล์นักวิจารณ์'],
@@ -336,7 +360,15 @@ const TOPICS = [
     D: 'The documentary would focus on one product and follow it from the filming studio to a hospital ward. It would include interviews with doctors, patients who were harmed, and a former influencer who now regrets his videos. Also, we would show how sponsorship money works. However, we would let the influencers explain themselves.',
     I: 'After watching it, viewers may ask for evidence, check with a pharmacist, and stop believing advice that comes with a discount code.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องอินฟลูเอนเซอร์ที่เผยแพร่ข้อมูลสุขภาพผิด ๆ ไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีทรงพลังสักเรื่องเกี่ยวกับเรื่องนี้ อยากรู้ไหมว่าทำไมเราถึงเชื่อคนแปลกหน้าในโลกออนไลน์มากกว่าหมอที่เรียนมาจริง',
+    C: 'เท่าที่ทราบ อินฟลูเอนเซอร์ชื่อดังคนหนึ่งขายเครื่องดื่มสมุนไพร แล้วอ้างว่ามันใช้แทนยาจริงได้ ข่าวนี้ดังไปทั่ว เขาตั้งใจจะส่งเสริมการใช้ชีวิตเพื่อสุขภาพ แต่ที่น่าตกใจคือ ผู้ติดตามหลายคนหยุดกินยาที่หมอสั่ง',
+    D: 'สารคดีจะโฟกัสที่สินค้าหนึ่งชิ้น แล้วตามติดตั้งแต่สตูดิโอถ่ายทำไปจนถึงหอผู้ป่วย จะมีการสัมภาษณ์แพทย์ ผู้ป่วยที่ได้รับผลกระทบ และอดีตอินฟลูเอนเซอร์ที่ตอนนี้เสียใจกับคลิปของตัวเอง นอกจากนี้ เราจะแสดงให้เห็นว่าเงินสปอนเซอร์ทำงานอย่างไร อย่างไรก็ตาม เราจะเปิดโอกาสให้อินฟลูเอนเซอร์ได้ชี้แจงด้วยตัวเอง',
+    I: 'หลังดูจบ ผู้ชมอาจขอดูหลักฐาน ปรึกษาเภสัชกร และเลิกเชื่อคำแนะนำที่มาพร้อมโค้ดส่วนลด'
+  },
   easy: 'Have you heard about influencers and wrong health information? Wouldn’t it be good to make a documentary about this? Apparently, one influencer sold a drink and said it could replace medicine. It was all over the news. The documentary would focus on that product. It would include interviews with doctors, patients, and a former influencer. After watching it, viewers may ask their doctor first.',
+  easyTh: 'เคยได้ยินเรื่องอินฟลูเอนเซอร์กับข้อมูลสุขภาพผิด ๆ ไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ อินฟลูเอนเซอร์คนหนึ่งขายเครื่องดื่มแล้วบอกว่าใช้แทนยาได้ ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่สินค้าชิ้นนั้น จะมีการสัมภาษณ์แพทย์ ผู้ป่วย และอดีตอินฟลูเอนเซอร์ หลังดูจบ ผู้ชมอาจปรึกษาหมอก่อน',
   challenge: [
     ['Isn’t it frightening that trust is now for sale?', 'คำถามเชิงลบเชิงวิพากษ์'],
     ['an uncomfortable, carefully balanced investigation', 'บรรยายโทนสารคดี'],
@@ -374,7 +406,15 @@ const TOPICS = [
     D: 'The documentary would follow three workers for six months, from the office to the therapy room. It would include interviews with employees who resigned, HR managers, and psychologists. First, we show the salary. Also, we show the cost. However, we never say that ambition is wrong.',
     I: 'After watching it, viewers may rest without feeling guilty, talk openly about stress, and define success in their own way.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องคนที่ตอนนี้เลือกสุขภาพจิตมากกว่าความสำเร็จในอาชีพไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีที่ตรงไปตรงมาสักเรื่องเกี่ยวกับเรื่องนี้ ถึงเวลาแล้วหรือยังที่จะคุยกันอย่างจริงจังเรื่องภาวะหมดไฟในที่ทำงาน',
+    C: 'เท่าที่ทราบ ผู้จัดการสาวคนหนึ่งปฏิเสธการเลื่อนตำแหน่งครั้งใหญ่ เพราะเธอนอนไม่หลับมาสามเดือน เรื่องนี้ถูกรายงานอย่างกว้างขวาง บริษัทตั้งใจจะตอบแทนความทุ่มเทของเธอ แต่ที่น่าตกใจคือ รางวัลนั้นเองที่ทำให้เธอป่วย',
+    D: 'สารคดีจะตามติดคนทำงานสามคนเป็นเวลาหกเดือน ตั้งแต่ออฟฟิศไปจนถึงห้องบำบัด จะมีการสัมภาษณ์พนักงานที่ลาออก ฝ่ายบุคคล และนักจิตวิทยา อย่างแรก เราจะแสดงเงินเดือน นอกจากนี้ เราจะแสดงราคาที่ต้องจ่าย อย่างไรก็ตาม เราจะไม่บอกเลยว่าความทะเยอทะยานเป็นสิ่งผิด',
+    I: 'หลังดูจบ ผู้ชมอาจพักผ่อนได้โดยไม่รู้สึกผิด พูดเรื่องความเครียดอย่างเปิดเผย และนิยามความสำเร็จในแบบของตัวเอง'
+  },
   easy: 'Have you heard about people who choose mental health over career success? Isn’t it time to make a documentary about this? Apparently, a young manager said no to a promotion because she was exhausted. It was all over the news. The documentary would focus on three workers for six months. It would include interviews with employees, HR managers, and psychologists. After watching it, viewers may take care of themselves.',
+  easyTh: 'เคยได้ยินเรื่องคนที่เลือกสุขภาพจิตมากกว่าความสำเร็จในอาชีพไหม ถึงเวลาแล้วหรือยังที่จะทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ ผู้จัดการสาวคนหนึ่งปฏิเสธการเลื่อนตำแหน่งเพราะเธอเหนื่อยล้ามาก ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่คนทำงานสามคนเป็นเวลาหกเดือน จะมีการสัมภาษณ์พนักงาน ฝ่ายบุคคล และนักจิตวิทยา หลังดูจบ ผู้ชมอาจดูแลตัวเองมากขึ้น',
   challenge: [
     ['Don’t you think we measure success with the wrong ruler?', 'คำถามเชิงลบ + อุปมา'],
     ['a tender, slow-burning portrait of modern work', 'ภาษาระดับนักวิจารณ์'],
@@ -412,7 +452,15 @@ const TOPICS = [
     D: 'The documentary would follow two students for one year, from the classroom to the job interview. It would include interviews with employers, students, and teachers who are changing their curriculum. Also, we would film a real interview. However, we would not pretend that grades are useless.',
     I: 'After watching it, viewers may start a portfolio, join an internship, and stop panicking about one bad grade.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องเกรดกับทักษะที่ใช้ได้จริงไหม',
+    P: 'ไม่คิดเหรอว่าน่าจะดีกว่าถ้าเราสร้างสารคดีที่ตรงไปตรงมาสักเรื่องเกี่ยวกับเรื่องนี้ อยากรู้ไหมว่าจริง ๆ แล้วนายจ้างดูอะไร',
+    C: 'เท่าที่ทราบ บริษัทเทคโนโลยีแห่งหนึ่งรับนักเรียนเกรดปานกลางเข้าทำงาน และปฏิเสธนักเรียนที่ได้เกรดเต็ม ข่าวนี้ดังไปทั่ว โรงเรียนตั้งใจจะยกย่องนักเรียนที่เก่งที่สุด แต่ที่น่าตกใจคือ นักเรียนคนนั้นไม่เคยลงมือสร้างอะไรเลย',
+    D: 'สารคดีจะตามติดนักเรียนสองคนเป็นเวลาหนึ่งปี ตั้งแต่ในห้องเรียนไปจนถึงการสัมภาษณ์งาน จะมีการสัมภาษณ์นายจ้าง นักเรียน และครูที่กำลังปรับหลักสูตร นอกจากนี้ เราจะถ่ายการสัมภาษณ์งานจริง อย่างไรก็ตาม เราจะไม่แกล้งทำเป็นว่าเกรดไม่มีประโยชน์',
+    I: 'หลังดูจบ ผู้ชมอาจเริ่มทำแฟ้มผลงาน เข้าฝึกงาน และเลิกตื่นตระหนกกับเกรดที่ไม่ดีเพียงตัวเดียว'
+  },
   easy: 'Have you heard about grades and practical skills? Wouldn’t it be good to make a documentary about this? Apparently, a company hired a student with average grades, not the top student. It was all over the news. The documentary would focus on two students for one year. It would include interviews with employers, students, and teachers. After watching it, viewers may build real skills, not only grades.',
+  easyTh: 'เคยได้ยินเรื่องเกรดกับทักษะที่ใช้ได้จริงไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ บริษัทแห่งหนึ่งรับนักเรียนเกรดปานกลาง ไม่ใช่นักเรียนที่เก่งที่สุด ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่นักเรียนสองคนเป็นเวลาหนึ่งปี จะมีการสัมภาษณ์นายจ้าง นักเรียน และครู หลังดูจบ ผู้ชมอาจสร้างทักษะจริง ไม่ใช่แค่เกรด',
   challenge: [
     ['Isn’t it strange that we still rank children with a number?', 'คำถามเชิงลบเชิงตั้งคำถามกับระบบ'],
     ['a sharp, surprisingly hopeful film', 'อัปเกรดการบรรยาย'],
@@ -450,7 +498,15 @@ const TOPICS = [
     D: 'The documentary would focus on three students and three very different gap years: one working, one volunteering, one travelling. It would include interviews with the students, their parents, and university admissions officers. However, we would also film the student whose gap year went wrong.',
     I: 'After watching it, viewers may plan a gap year with a real purpose, or decide honestly that university straight away is better for them.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่อง Gap Year ที่กำลังได้รับความนิยมไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีเกี่ยวกับเรื่องนี้ ไม่คิดเหรอว่าพ่อแม่และนักเรียนควรได้ฟังทั้งสองด้านของเรื่องนี้',
+    C: 'เท่าที่ทราบ นักเรียนคนหนึ่งเลื่อนที่นั่งในมหาวิทยาลัยชั้นนำ เพื่อไปทำงานในโรงแรมเล็ก ๆ เป็นเวลาสิบสองเดือน เรื่องนี้ถูกรายงานอย่างกว้างขวาง พ่อแม่ของเขาตั้งใจจะห้าม แต่ที่น่าตกใจคือ เขากลับมาพร้อมเกรดที่ดีขึ้นและแผนที่ชัดเจน',
+    D: 'สารคดีจะโฟกัสที่นักเรียนสามคนกับ Gap Year ที่ต่างกันมากสามแบบ คนหนึ่งไปทำงาน คนหนึ่งไปเป็นอาสาสมัคร อีกคนไปเดินทาง จะมีการสัมภาษณ์นักเรียน พ่อแม่ของพวกเขา และเจ้าหน้าที่รับเข้ามหาวิทยาลัย อย่างไรก็ตาม เราจะถ่ายนักเรียนที่ Gap Year ล้มเหลวด้วย',
+    I: 'หลังดูจบ ผู้ชมอาจวางแผน Gap Year อย่างมีเป้าหมายจริง ๆ หรือตัดสินใจอย่างซื่อสัตย์ว่าการเรียนต่อทันทีเหมาะกับตัวเองมากกว่า'
+  },
   easy: 'Have you heard about gap years? Wouldn’t it be good to make a documentary about this? Apparently, one student waited a year before university and worked in a hotel. It was all over the news. The documentary would focus on three students with three different gap years. It would include interviews with students, parents, and university officers. After watching it, viewers may plan their year with a clear purpose.',
+  easyTh: 'เคยได้ยินเรื่อง Gap Year ไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ นักเรียนคนหนึ่งรอหนึ่งปีก่อนเข้ามหาวิทยาลัย แล้วไปทำงานในโรงแรม ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่นักเรียนสามคนกับ Gap Year สามแบบ จะมีการสัมภาษณ์นักเรียน พ่อแม่ และเจ้าหน้าที่มหาวิทยาลัย หลังดูจบ ผู้ชมอาจวางแผนปีของตัวเองอย่างมีเป้าหมายชัดเจน',
   challenge: [
     ['Wouldn’t you say a year of living is also an education?', 'คำถามเชิงลบ + แนวคิด'],
     ['a warm but unsentimental film', 'คำบรรยายระดับสูง'],
@@ -488,7 +544,15 @@ const TOPICS = [
     D: 'The documentary would focus on three young users for two weeks: one week with the app, one week without it. It would include interviews with the users, psychologists who study loneliness, and the developers themselves. However, we would never mock anyone for feeling lonely.',
     I: 'After watching it, viewers may understand why the app feels safe, and still choose to message a real friend tonight.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องคนรุ่นใหม่ที่คุยกับแชตบอต AI มากกว่าคุยกับเพื่อนไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีที่ลึกซึ้งสักเรื่องเกี่ยวกับเรื่องนี้ ถึงเวลาแล้วหรือยังที่จะถามว่าเพื่อนแท้จริง ๆ แล้วคืออะไร',
+    C: 'เท่าที่ทราบ การสำรวจระดับประเทศพบว่าวัยรุ่นจำนวนมากตอนนี้คุยกับแชตบอตบ่อยกว่าคุยกับครอบครัวตัวเอง ข่าวนี้ดังไปทั่ว นักพัฒนาตั้งใจจะสร้างเครื่องมือช่วยเรียน แต่ที่น่าตกใจคือ ผู้ใช้เริ่มเล่าความลับที่ลึกที่สุดให้มันฟัง',
+    D: 'สารคดีจะโฟกัสที่ผู้ใช้วัยรุ่นสามคนเป็นเวลาสองสัปดาห์ หนึ่งสัปดาห์ที่มีแอป อีกหนึ่งสัปดาห์ที่ไม่มี จะมีการสัมภาษณ์ผู้ใช้ นักจิตวิทยาที่ศึกษาความเหงา และตัวนักพัฒนาเอง อย่างไรก็ตาม เราจะไม่ล้อเลียนใครที่รู้สึกเหงาเด็ดขาด',
+    I: 'หลังดูจบ ผู้ชมอาจเข้าใจว่าทำไมแอปถึงให้ความรู้สึกปลอดภัย แต่ก็ยังเลือกที่จะทักหาเพื่อนจริง ๆ ในคืนนี้'
+  },
   easy: 'Have you heard about young people talking to AI chatbots? Isn’t it time to make a documentary about this? Apparently, many teenagers talk to a chatbot more than to their family. It was all over the news. The documentary would focus on three users for two weeks. It would include interviews with users, psychologists, and AI developers. After watching it, viewers may call a real friend.',
+  easyTh: 'เคยได้ยินเรื่องคนรุ่นใหม่ที่คุยกับแชตบอต AI ไหม ถึงเวลาแล้วหรือยังที่จะทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ วัยรุ่นหลายคนคุยกับแชตบอตมากกว่าคุยกับครอบครัว ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่ผู้ใช้สามคนเป็นเวลาสองสัปดาห์ จะมีการสัมภาษณ์ผู้ใช้ นักจิตวิทยา และนักพัฒนา AI หลังดูจบ ผู้ชมอาจโทรหาเพื่อนจริง ๆ',
   challenge: [
     ['Don’t you think comfort without risk is not really friendship?', 'คำถามเชิงลบเชิงปรัชญา'],
     ['an intimate, quietly unsettling film', 'บรรยายโทนหนัง'],
@@ -526,7 +590,15 @@ const TOPICS = [
     D: 'The documentary would follow one ninety-nine-baht T-shirt from the factory to the landfill. It would include interviews with garment workers, environmental scientists, and second-hand market sellers. Also, we would film the river beside the dye factory. However, we would not blame ordinary shoppers.',
     I: 'After watching it, viewers may buy less, repair more, and look at a cheap price tag with completely different eyes.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องแฟชั่นด่วนกับสิ่งแวดล้อมไหม',
+    P: 'ไม่คิดเหรอว่าน่าจะดีกว่าถ้าเราสร้างสารคดีทรงพลังสักเรื่องเกี่ยวกับเรื่องนี้ อยากรู้ไหมว่าราคาที่แท้จริงของเสื้อยืดราคาถูกคือเท่าไร',
+    C: 'เท่าที่ทราบ เสื้อผ้าที่ขายไม่ออกหลายพันตันถูกนำไปทิ้งในทะเลทราย และกองใหญ่จนมองเห็นได้จากอวกาศ ข่าวนี้ดังไปทั่ว แบรนด์ต่าง ๆ ตั้งใจจะทำให้แฟชั่นเข้าถึงได้ แต่ที่น่าตกใจคือ เสื้อผ้าเหล่านั้นส่วนใหญ่ไม่เคยถูกสวมแม้แต่ครั้งเดียว',
+    D: 'สารคดีจะตามติดเสื้อยืดราคาเก้าสิบเก้าบาทหนึ่งตัว ตั้งแต่โรงงานไปจนถึงหลุมฝังกลบขยะ จะมีการสัมภาษณ์คนงานโรงงานเสื้อผ้า นักวิทยาศาสตร์สิ่งแวดล้อม และพ่อค้าแม่ค้าตลาดมือสอง นอกจากนี้ เราจะถ่ายแม่น้ำข้างโรงงานย้อมผ้า อย่างไรก็ตาม เราจะไม่โทษผู้ซื้อทั่วไป',
+    I: 'หลังดูจบ ผู้ชมอาจซื้อน้อยลง ซ่อมมากขึ้น และมองป้ายราคาถูกด้วยสายตาที่ต่างไปอย่างสิ้นเชิง'
+  },
   easy: 'Have you heard about fast fashion and the environment? Wouldn’t it be good to make a documentary about this? Apparently, tonnes of unsold clothes were dumped in a desert. It was all over the news. The documentary would follow one cheap T-shirt from the factory to the landfill. It would include interviews with workers, scientists, and second-hand sellers. After watching it, viewers may buy less and wear clothes longer.',
+  easyTh: 'เคยได้ยินเรื่องแฟชั่นด่วนกับสิ่งแวดล้อมไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ เสื้อผ้าที่ขายไม่ออกหลายตันถูกนำไปทิ้งในทะเลทราย ข่าวนี้ดังไปทั่ว สารคดีจะตามติดเสื้อยืดราคาถูกหนึ่งตัวตั้งแต่โรงงานไปจนถึงหลุมฝังกลบขยะ จะมีการสัมภาษณ์คนงาน นักวิทยาศาสตร์ และพ่อค้าแม่ค้ามือสอง หลังดูจบ ผู้ชมอาจซื้อน้อยลงและใส่เสื้อผ้าให้นานขึ้น',
   challenge: [
     ['Isn’t it shocking that a T-shirt can outlive the person who wore it?', 'คำถามเชิงลบที่สร้างภาพจำ'],
     ['a visually stunning, uncomfortable journey', 'บรรยายสไตล์สารคดีจริง'],
@@ -564,7 +636,15 @@ const TOPICS = [
     D: 'The documentary would focus on that single school for one term. It would include interviews with teachers, students from both sides of the argument, and parents who still want to reach their children. First, we film day one. Also, we film the final exam. However, we would give the students the last word.',
     I: 'After watching it, viewers may understand both sides and help their own school write a fair, realistic phone policy.'
   },
+  modelTh: {
+    O: 'เคยได้ยินข่าวเรื่องโรงเรียนที่อยากห้ามใช้สมาร์ตโฟนโดยสิ้นเชิงไหม',
+    P: 'น่าจะดีไหมถ้าเราถ่ายสารคดีที่เป็นกลางสักเรื่องเกี่ยวกับเรื่องนี้ ไม่คิดเหรอว่านักเรียนควรมีส่วนร่วมในการตัดสินใจ',
+    C: 'เท่าที่ทราบ โรงเรียนแห่งหนึ่งล็อกโทรศัพท์ทุกเครื่องไว้ในกล่องตลอดทั้งเทอม เรื่องนี้ถูกรายงานอย่างกว้างขวาง ครูตั้งใจจะเพิ่มสมาธิให้นักเรียน แต่ที่น่าตกใจคือ การเปลี่ยนแปลงที่ใหญ่ที่สุดเกิดขึ้นที่สนามเด็กเล่น ที่ซึ่งนักเรียนเริ่มกลับมาคุยกันอีกครั้ง',
+    D: 'สารคดีจะโฟกัสที่โรงเรียนแห่งเดียวนั้นเป็นเวลาหนึ่งเทอม จะมีการสัมภาษณ์ครู นักเรียนจากทั้งสองฝ่ายของข้อถกเถียง และพ่อแม่ที่ยังอยากติดต่อลูกได้ อย่างแรก เราจะถ่ายวันแรก นอกจากนี้ เราจะถ่ายการสอบปลายภาค อย่างไรก็ตาม เราจะให้นักเรียนเป็นคนพูดปิดท้าย',
+    I: 'หลังดูจบ ผู้ชมอาจเข้าใจทั้งสองฝ่าย และช่วยโรงเรียนของตัวเองร่างนโยบายเรื่องโทรศัพท์ที่ยุติธรรมและทำได้จริง'
+  },
   easy: 'Have you heard about schools banning smartphones? Wouldn’t it be good to make a documentary about this? Apparently, one school locked all the phones for a whole term. It was all over the news. The documentary would focus on that school for one term. It would include interviews with teachers, students, and parents. After watching it, viewers may understand both sides of the argument.',
+  easyTh: 'เคยได้ยินเรื่องโรงเรียนที่ห้ามใช้สมาร์ตโฟนไหม น่าจะดีไหมถ้าเราทำสารคดีเกี่ยวกับเรื่องนี้ เท่าที่ทราบ โรงเรียนแห่งหนึ่งล็อกโทรศัพท์ทุกเครื่องตลอดทั้งเทอม ข่าวนี้ดังไปทั่ว สารคดีจะโฟกัสที่โรงเรียนแห่งนั้นเป็นเวลาหนึ่งเทอม จะมีการสัมภาษณ์ครู นักเรียน และพ่อแม่ หลังดูจบ ผู้ชมอาจเข้าใจทั้งสองฝ่ายของข้อถกเถียง',
   challenge: [
     ['Don’t you think a rule without a reason never lasts?', 'คำถามเชิงลบเชิงตรรกะ'],
     ['a fair-minded, observational documentary', 'คำศัพท์สายสารคดีจริง'],
@@ -819,14 +899,14 @@ function renderTopics() {
 function modelHTML(t, tab) {
   if (tab === 'easy') {
     return `<p class="small muted">${lang === 'th' ? 'เวอร์ชันง่าย: ประโยคสั้น จำง่าย เหมาะกับผู้เริ่มต้น' : 'Easy version: short, simple sentences.'}</p>
-      <span class="ms ms-o">${t.easy}</span>
+      <span class="ms ms-o">${t.easy}<i class="ms-th">${t.easyTh}</i></span>
       <p class="wc">${countWords(t.easy)} words</p>`;
   }
   if (tab === 'challenge') {
     return `<p class="small muted">${lang === 'th' ? 'เวอร์ชันท้าทาย: ใช้เวอร์ชัน Normal แล้วอัปเกรดด้วยวลีเหล่านี้' : 'Challenge: upgrade the Normal version with these.'}</p>
       ${t.challenge.map(c => `<div class="up">${c[0]}<i>${c[1]}</i></div>`).join('')}`;
   }
-  return STEPS.map(s => `<span class="ms ms-${s.k.toLowerCase()}"><strong>${s.k}.</strong> ${t.model[s.k]}</span>`).join('') +
+  return STEPS.map(s => `<span class="ms ms-${s.k.toLowerCase()}"><strong>${s.k}.</strong> ${t.model[s.k]}<i class="ms-th">${t.modelTh[s.k]}</i></span>`).join('') +
     `<p class="wc">${countWords(Object.values(t.model).join(' '))} words · ~${Math.round(countWords(Object.values(t.model).join(' ')) / 2.2)}s</p>`;
 }
 
